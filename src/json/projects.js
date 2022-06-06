@@ -6,6 +6,82 @@ const data = {
     },
     'projects': [
         {
+            'id': 35,
+            "public": true,
+            'title': "Maquettage d'ATM Dashboard",
+            'img': [
+                "src/imgs/projects/2206/atmdashboard-2.webp",
+                "src/imgs/projects/2206/atmdashboard-1.webp"
+            ],
+            'date': "Juin 2022",
+            'dateId': '2206',
+            'shortDescription': "Un dashboard de gestion des distributeurs automatiques de banques",
+            'description': "ATM Dashboard est un dashboard de gestion des pour les distributeurs automatiques de banques, connaitre la quantité de DAB hors service ainsi que le nombre d'érreurs techniques.",
+            'technology': [
+                'Figma'
+            ],
+            'links': {
+                'github': "",
+                'gitlab': "",
+                'itchio': "",
+                'codepen': "",
+                'youtube': "",
+                'website': ""
+            }
+        },
+        {
+            'id': 34,
+            "public": false,
+            'title': "The Breakout",
+            'img': [
+                ""
+            ],
+            'date': "Juin 2022",
+            'dateId': '2206',
+            'shortDescription': "...",
+            'description': "...",
+            'technology': [
+                'Lua', 'Love2D'
+            ],
+            'links': {
+                'github': "",
+                'gitlab': "",
+                'itchio': "",
+                'codepen': "",
+                'youtube': "",
+                'website': ""
+            }
+        },
+
+        // Juin 2022
+
+        {
+            'id': 33,
+            "public": false,
+            'title': "The pong",
+            'img': [
+                ""
+            ],
+            'date': "Mai 2022",
+            'dateId': '2205',
+            'shortDescription': "...",
+            'description': "...",
+            'technology': [
+                'Lua', 'Love2D'
+            ],
+            'links': {
+                'github': "",
+                'gitlab': "",
+                'itchio': "",
+                'codepen': "",
+                'youtube': "",
+                'website': ""
+            }
+        },
+
+        // Mai 2022
+
+        {
             'id': 32,
             "public": true,
             'title': "Touiter React",
@@ -15,7 +91,7 @@ const data = {
             'date': "Avril 2022",
             'dateId': '2204',
             'shortDescription': "Touiter React est un réseau social fonctionnant avec une API Made In Cefim. Il sagit d'un projet d'entrainement  ReactJS.",
-            'description': "Touiter React est un réseau social fonctionnant avec une API Made In Cefim. Il sagit d'un projet d'entrainement  ReactJS",
+            'description': "Touiter React est un réseau social fonctionnant avec une API Made In Cefim. Il sagit d'un projet d'entrainement ReactJS. L'API n'étant pas sécurisée, je ne préfère pas la partager.",
             'technology': [
                 'reactJS', 'sass'
             ],
@@ -39,7 +115,7 @@ const data = {
             'shortDescription': "MovieLib est une application web développée en ReactJS lors d'un exercice pour pratiquer ReactJS.",
             'description': "MovieLib est une application web développée en ReactJS lors d'un exercice pour pratiquer ReactJS.",
             'technology': [
-                'php', 'wordpress'
+                'PHP', 'wordpress'
             ],
             'links': {
                 'github': "",
@@ -65,7 +141,7 @@ const data = {
             'shortDescription': "Il sagit d'un exercice proposé par le CEFIM pour pratiquer la création de thème Wordpress.",
             'description': "Il sagit d'un exercice proposé par le CEFIM pour pratiquer la création de thème Wordpress.",
             'technology': [
-                'php', 'wordpress'
+                'PHP', 'wordpress'
             ],
             'links': {
                 'github': "",
