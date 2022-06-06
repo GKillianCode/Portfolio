@@ -1,0 +1,46 @@
+
+.header-illustration{
+    width: 100%;
+    height: 25rem;
+    margin-top: 5.6rem;
+    background-image: url(/src/imgs/assets/header-background.png);
+    background-position: center;
+    background-size: cover;
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        font-family: var(--font-title);
+        font-weight: 700;
+
+        background-color: rgba(223, 237, 255, 0.74);
+        color: var(--black);
+
+        p.name{
+            font-size: 3.2rem;
+        }
+        p.description{
+            color: var(--color-primary);
+        }
+    }
+}
+
+
+@media screen and (min-width: 48em){
+    .header-illustration{
+        margin-top: 0;
+        height: 30rem;
+
+        .content{
+            font-size: 2rem;
+            p.name{
+                font-size: 4.5rem;
+            }
+        }
+    }
+}

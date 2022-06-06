@@ -1,0 +1,46 @@
+
+:root{
+    --black: #222;
+    --light-black: #333333;
+    --white: #FFF;
+    --color-primary: #2ea1ff; /*#4dafff*/
+    --color-secondary: #88c9ff;
+
+
+    --text-light: #EEE;
+    --text-dark: #333;
+    --bg-light: #EEE;
+    --bg-dark: #3A3A3A;
+    --bg-dark-light: #444;
+    --bg-dark-dark: #2A2A2A;
+    --card-light: #DFDFDF;
+    --card-dark: #3E3E3E;
+    --btn-light: #CCC;
+    --btn-light-hover: #A5A5A5;
+    --btn-dark: #444;
+    --btn-dark-hover: #353535;
+
+    --color-text: var(--text-dark);
+    --color-bg: var(--bg-light);
+    --color-bg-dark: var(--bg-dark-light);
+    --color-card: var(--card-light);
+    --color-section-title-light: var(--black);
+    --color-section-title-dark: var(--white);
+    --color-btn: var(--btn-light);
+    --color-btn-hover: var(--btn-light-hover);
+
+    --font-title: Montserrat, sans-serif;
+    --font-subtitle: Padauk, sans-serif;
+    --font-text: 'Hind marudai', sans-serif;
+}
+
+.dark{
+    --color-text: var(--text-light);
+    --color-bg: var(--bg-dark);
+    --color-bg-dark: var(--bg-dark-dark);
+    --color-card: var(--card-dark);
+    --color-section-title-light: var(--white);
+    --color-section-title-dark: var(--black);
+    --color-btn: var(--btn-dark);
+    --color-btn-hover: var(--btn-dark-hover);
+}

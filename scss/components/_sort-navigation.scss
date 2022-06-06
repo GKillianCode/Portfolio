@@ -1,0 +1,27 @@
+
+.sort-navigation{
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}
+
+@media screen and (max-width: 36.999em){
+    .sort-navigation{
+        .container{
+
+        }
+    }
+}
+
+@media screen and (min-width: 37em){
+    .sort-navigation{
+        .container{
+
+        }
+    }
+}

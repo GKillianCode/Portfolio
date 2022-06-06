@@ -1,0 +1,44 @@
+
+.contact{
+    padding: 8rem 0;
+    background-color: var(--color-bg-dark);
+    .container{
+        .info{
+            &-title{
+                display: block;
+                font-family: var(--font-title);
+                font-size: 1.8rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                margin-bottom: .2rem;
+                color: var(--color-secondary);
+            }
+        }
+
+        .info, a{
+            color: var(--text-light);
+            text-decoration: none;
+        }
+    }
+
+    &-content{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 4rem;
+
+        div{
+            width: 25rem;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 3rem;
+        }
+    }
+
+    &-logo{
+        width: 3rem;
+        color: var(--color-primary);
+    }
+}

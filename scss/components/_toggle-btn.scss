@@ -1,0 +1,63 @@
+
+.toggle{
+
+    display: flex;
+    align-items: center;
+    &-content{
+        display: flex;
+    }
+    &-logo{
+        width: 1.6rem;
+    }
+    &-button{
+        position: relative;
+        width: 4.2rem;
+        height: 2.2rem;
+        margin-left: 1.6rem;
+        margin-right: 1.6rem;
+        background-color: var(--white);
+        border-radius: 25% / 50%;
+        cursor: pointer;
+        &::after{
+            content: '';
+            position: absolute;
+            top: .4rem;
+            left: .4rem;
+            z-index: 10;
+            border-radius: 50%;
+            background-color: var(--black);
+            width: 1.4rem;
+            height: 1.4rem;
+        }
+        &:hover::after{
+            background-color: var(--light-black);
+        }
+    }
+    &-checkbox{
+        display: none;
+    }
+    &-checkbox:checked + .toggle-content .toggle-button::after{
+        left: auto;
+        right: .4rem;
+    }
+}
+
+@media screen and (min-width: 48em){
+    .toggle{
+        &-logo{
+            width: 1.2rem;
+        }
+        &-button{
+            width: 3.6rem;
+            height: 1.8rem;
+            &::after{
+                top: .23rem;
+                left: .3rem;
+            }
+        }
+        &-checkbox:checked + .toggle-content .toggle-button::after{
+            left: auto;
+            right: .3rem;
+        }
+    }
+}

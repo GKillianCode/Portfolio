@@ -1,0 +1,834 @@
+@charset "UTF-8";
+:root {
+  --black: #222;
+  --light-black: #333333;
+  --white: #FFF;
+  --color-primary: #2ea1ff;
+  /*#4dafff*/
+  --color-secondary: #88c9ff;
+  --text-light: #EEE;
+  --text-dark: #333;
+  --bg-light: #EEE;
+  --bg-dark: #3A3A3A;
+  --bg-dark-light: #444;
+  --bg-dark-dark: #2A2A2A;
+  --card-light: #DFDFDF;
+  --card-dark: #3E3E3E;
+  --btn-light: #CCC;
+  --btn-light-hover: #A5A5A5;
+  --btn-dark: #444;
+  --btn-dark-hover: #353535;
+  --color-text: var(--text-dark);
+  --color-bg: var(--bg-light);
+  --color-bg-dark: var(--bg-dark-light);
+  --color-card: var(--card-light);
+  --color-section-title-light: var(--black);
+  --color-section-title-dark: var(--white);
+  --color-btn: var(--btn-light);
+  --color-btn-hover: var(--btn-light-hover);
+  --font-title: Montserrat, sans-serif;
+  --font-subtitle: Padauk, sans-serif;
+  --font-text: "Hind marudai", sans-serif;
+}
+
+.dark {
+  --color-text: var(--text-light);
+  --color-bg: var(--bg-dark);
+  --color-bg-dark: var(--bg-dark-dark);
+  --color-card: var(--card-dark);
+  --color-section-title-light: var(--white);
+  --color-section-title-dark: var(--black);
+  --color-btn: var(--btn-dark);
+  --color-btn-hover: var(--btn-dark-hover);
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles, padding and margin on ul, ol elements with a class, which suggests default styling will be removed */
+ul:where([class]),
+ol:where([class]) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core root defaults */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* Débuggueur CSS  */
+/* Root font size equivalent à 10px pour simplifier les calculs */
+html {
+  font-size: 0.625em;
+  /* fallback IE8+ */
+  font-size: 0.625em;
+  /* IE9-IE11 math fixing. See http://bit.ly/1g4X0bX */
+}
+
+/* Remove focus for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Set core body defaults */
+body {
+  font-size: 1.6rem;
+}
+
+/* Set text selection color */
+::selection {
+  color: #000;
+  background-color: var(--color-secondary);
+}
+
+/* Set cursor pointer */
+label[for],
+button,
+input[type=submit],
+select {
+  cursor: pointer;
+}
+
+/* Remove font style on address */
+address {
+  font-style: normal;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  width: 1px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+/* Image replacement technique 2012 H5BP  - https://css-tricks.com/the-image-replacement-museum/ */
+.ir {
+  font: 0/0 a;
+  color: transparent;
+  border: 0;
+  text-shadow: none;
+}
+
+/* Print external URLs */
+@media print {
+  a {
+    text-decoration: underline;
+  }
+
+  a[href]:not([href^="#"])::after {
+    content: "(" attr(href) ")";
+  }
+}
+body {
+  --background: #D7D7D7;
+  --text-color: #CCC;
+  font-family: var(--font-text);
+  font-style: normal;
+  font-weight: 400;
+  background-color: var(--background);
+}
+
+.container {
+  width: 100%;
+  max-width: 142rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.main-content .container {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+@media screen and (min-width: 48em) {
+  .main-content .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+.main-title {
+  display: flex;
+  align-items: center;
+}
+
+.point, .label-colors {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.input-colors {
+  display: none;
+}
+
+/* montserrat-600 - latin */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  src: local(""), url("../fonts/montserrat-v23-latin-600.woff2") format("woff2"), url("../fonts/montserrat-v23-latin-600.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* montserrat-700 - latin */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/montserrat-v23-latin-700.woff2") format("woff2"), url("../fonts/montserrat-v23-latin-700.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* padauk-regular - latin */
+@font-face {
+  font-family: "Padauk";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/padauk-v12-latin-regular.woff2") format("woff2"), url("../fonts/padauk-v12-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* padauk-700 - latin */
+@font-face {
+  font-family: "Padauk";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/padauk-v12-latin-700.woff2") format("woff2"), url("../fonts/padauk-v12-latin-700.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* hind-madurai-300 - latin */
+@font-face {
+  font-family: "Hind Madurai";
+  font-style: normal;
+  font-weight: 300;
+  src: local(""), url("../fonts/hind-madurai-v10-latin-300.woff2") format("woff2"), url("../fonts/hind-madurai-v10-latin-300.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* hind-madurai-regular - latin */
+@font-face {
+  font-family: "Hind Madurai";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/hind-madurai-v10-latin-regular.woff2") format("woff2"), url("../fonts/hind-madurai-v10-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* hind-madurai-500 - latin */
+@font-face {
+  font-family: "Hind Madurai";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/hind-madurai-v10-latin-500.woff2") format("woff2"), url("../fonts/hind-madurai-v10-latin-500.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+.header-illustration {
+  width: 100%;
+  height: 25rem;
+  margin-top: 5.6rem;
+  background-image: url(/src/imgs/assets/header-background.png);
+  background-position: center;
+  background-size: cover;
+}
+.header-illustration .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-title);
+  font-weight: 700;
+  background-color: rgba(223, 237, 255, 0.74);
+  color: var(--black);
+}
+.header-illustration .content p.name {
+  font-size: 3.2rem;
+}
+.header-illustration .content p.description {
+  color: var(--color-primary);
+}
+
+@media screen and (min-width: 48em) {
+  .header-illustration {
+    margin-top: 0;
+    height: 30rem;
+  }
+  .header-illustration .content {
+    font-size: 2rem;
+  }
+  .header-illustration .content p.name {
+    font-size: 4.5rem;
+  }
+}
+.navigation {
+  --background: #222;
+  --text-color: #CCC;
+  --title-color: #FFF;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: var(--background);
+}
+.navigation .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navigation .main-title {
+  font-family: var(--font-title);
+  font-size: 2.4rem;
+  color: var(--title-color);
+}
+.navigation .nav-item {
+  list-style-type: none;
+}
+.navigation .nav-item-active a {
+  color: var(--color-primary);
+}
+.navigation .nav-link {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: 0.2s;
+}
+
+@media screen and (max-width: 47.999em) {
+  .navigation {
+    --background-color: rgba(51, 51, 51, .95);
+    position: fixed;
+    top: 0%;
+    left: 0;
+    width: 100%;
+  }
+  .navigation .main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 5.6rem;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 5.6rem);
+    background-color: var(--background-color);
+    transition: 0.5s;
+  }
+  .navigation .main-nav-active {
+    right: 0;
+  }
+  .navigation .main-nav ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+  }
+  .navigation .nav-item-btn {
+    order: 1;
+    margin-bottom: 1.5rem;
+  }
+  .navigation .nav-item {
+    text-align: center;
+  }
+  .navigation .nav-item-1 {
+    order: 2;
+  }
+  .navigation .nav-item-2 {
+    order: 3;
+  }
+  .navigation .nav-item-3 {
+    order: 4;
+  }
+  .navigation .nav-item-4 {
+    order: 5;
+  }
+  .navigation .nav-item-5 {
+    order: 6;
+  }
+}
+@media screen and (min-width: 48em) {
+  .navigation {
+    position: sticky;
+    top: 0;
+  }
+  .navigation .main-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .navigation .nav-item:hover a {
+    color: var(--color-secondary);
+  }
+  .navigation .toggle {
+    margin-left: 2rem;
+  }
+}
+.toggle {
+  display: flex;
+  align-items: center;
+}
+.toggle-content {
+  display: flex;
+}
+.toggle-logo {
+  width: 1.6rem;
+}
+.toggle-button {
+  position: relative;
+  width: 4.2rem;
+  height: 2.2rem;
+  margin-left: 1.6rem;
+  margin-right: 1.6rem;
+  background-color: var(--white);
+  border-radius: 25%/50%;
+  cursor: pointer;
+}
+.toggle-button::after {
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  z-index: 10;
+  border-radius: 50%;
+  background-color: var(--black);
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.toggle-button:hover::after {
+  background-color: var(--light-black);
+}
+.toggle-checkbox {
+  display: none;
+}
+.toggle-checkbox:checked + .toggle-content .toggle-button::after {
+  left: auto;
+  right: 0.4rem;
+}
+
+@media screen and (min-width: 48em) {
+  .toggle-logo {
+    width: 1.2rem;
+  }
+  .toggle-button {
+    width: 3.6rem;
+    height: 1.8rem;
+  }
+  .toggle-button::after {
+    top: 0.23rem;
+    left: 0.3rem;
+  }
+  .toggle-checkbox:checked + .toggle-content .toggle-button::after {
+    left: auto;
+    right: 0.3rem;
+  }
+}
+.btn-burger {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+}
+.btn-burger span {
+  display: block;
+  width: 100%;
+  height: 0.2rem;
+  background-color: #fff;
+  transform-origin: left center;
+  transition: 0.2s;
+}
+.btn-burger-active span {
+  width: 3.25rem;
+}
+.btn-burger-active span:first-child {
+  transform: rotateZ(45deg);
+}
+.btn-burger-active span:nth-child(2) {
+  visibility: hidden;
+}
+.btn-burger-active span:last-child {
+  transform: rotateZ(-45deg);
+}
+
+@media screen and (max-width: 47.999em) {
+  .btn-burger {
+    display: flex;
+  }
+}
+.section-header {
+  margin-bottom: 4rem;
+  font-family: var(--font-title);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  color: #EEE;
+}
+.section-header hr {
+  width: 5rem;
+  border: 1px solid #EEE;
+}
+
+.projects-section .projets-header-type {
+  font-family: var(--font-subtitle);
+  text-transform: uppercase;
+  margin-bottom: 4rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.1rem solid var(--color-secondary);
+}
+.projects-section .card {
+  background-color: var(--color-card);
+  box-shadow: 0 0 0.4rem #00000030;
+  width: 100%;
+  max-width: 30rem;
+}
+.projects-section .card-date {
+  color: var(--color-primary);
+}
+.projects-section .card-illustration {
+  width: 100%;
+  height: 20rem;
+  border-radius: 0.2rem;
+  background-size: cover;
+  background-position: center;
+}
+.projects-section .card-content {
+  width: 100%;
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.projects-section .card-content h3 {
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-bottom: 0.65rem;
+}
+.projects-section .card-content p {
+  font-size: 1.4rem;
+}
+
+.btn {
+  cursor: pointer;
+}
+.btn-read, .btn-more {
+  text-decoration: none;
+  background-color: var(--color-secondary);
+  color: var(--white);
+  border-radius: 0.2rem;
+  box-shadow: 0 0 0.4rem #00000030;
+  transition: 0.3s;
+}
+.btn-read {
+  display: inline-block;
+  padding: 0.6rem 0.6rem;
+  text-align: center;
+  margin-top: auto;
+  background-color: var(--color-btn);
+}
+.btn-more {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  padding: 1.5rem 4rem;
+  border-radius: 0.2rem;
+}
+.btn-read:hover {
+  background-color: var(--color-btn-hover);
+}
+.btn-more:hover {
+  background-color: var(--color-primary);
+}
+
+.sort-navigation .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+}
+
+.about {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+.about .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  gap: 4rem;
+}
+.about .illustration {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 2rem #00000080;
+  background-image: url(/src/imgs/assets/photo-profil.webp);
+  background-size: cover;
+  background-position: center;
+}
+.about .description h2 {
+  font-family: var(--font-subtitle);
+  font-size: 5rem;
+}
+
+@media screen and (min-width: 48em) {
+  .about .container {
+    grid-template-columns: 20rem 1fr;
+  }
+}
+.skills {
+  background-color: var(--color-bg-dark);
+}
+.skills .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.skills .content {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+.skills .skill {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, 8rem);
+  color: var(--color-secondary);
+}
+.skills .skill svg {
+  height: 6rem;
+}
+.skills .skill-title {
+  margin-top: 1rem;
+  text-align: center;
+  font-family: var(--font-subtitle);
+}
+
+.projects-section,
+.books-section {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+.projects-section .section-header,
+.books-section .section-header {
+  color: var(--color-section-title-light);
+}
+.projects-section .section-header hr,
+.books-section .section-header hr {
+  border-color: var(--color-section-title-light);
+}
+.projects-section .cards,
+.books-section .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 30rem);
+  justify-content: center;
+  gap: 2rem;
+}
+.projects-section .card,
+.books-section .card {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  color: var(--color-text);
+}
+.project > div {
+  width: 100%;
+}
+.project-illustration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.project-illustration-img {
+  width: 100%;
+  background-image: url(/src/imgs/projects/2110/oct21-carsdriving.webp);
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.1rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem #00000050;
+}
+.project-content-title {
+  font-family: var(--font-title);
+  font-size: 2.8rem;
+  margin-bottom: 1.2rem;
+}
+.project-content-technology {
+  margin-bottom: 1rem;
+}
+.project-content-technology-item {
+  text-transform: capitalize;
+  color: var(--color-primary);
+}
+.project-content-description {
+  margin-bottom: 4rem;
+}
+.project-content-links ul {
+  margin-left: -2.5rem;
+  list-style: none;
+}
+.project-content-links ul li {
+  display: flex;
+  align-items: center;
+}
+.project-content-links ul li a {
+  text-decoration: none;
+  color: var(--color-secondary);
+  transition: 0.3s;
+}
+.project-content-links ul li a:hover {
+  color: var(--color-primary);
+}
+.project-content-links ul .disabled {
+  display: none;
+}
+.project-content-links ul li + a[href="#"] {
+  display: none;
+}
+.project-content-links ul li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.project .project-link-disabled {
+  display: none;
+}
+.project-icon {
+  width: 2rem;
+  margin-right: 1.5rem;
+}
+
+@media screen and (min-width: 64em) {
+  .project {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    color: var(--color-text);
+  }
+  .project > div {
+    width: 45%;
+  }
+}
+.contact {
+  padding: 8rem 0;
+  background-color: var(--color-bg-dark);
+}
+.contact .container .info-title {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+  color: var(--color-secondary);
+}
+.contact .container .info, .contact .container a {
+  color: var(--text-light);
+  text-decoration: none;
+}
+.contact-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+.contact-content div {
+  width: 25rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 3rem;
+}
+.contact-logo {
+  width: 3rem;
+  color: var(--color-primary);
+}
+
+/*# sourceMappingURL=main.css.map */

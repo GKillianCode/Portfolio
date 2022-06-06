@@ -1,0 +1,93 @@
+
+
+.project{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    color: var(--color-text);
+    & > div{
+        width: 100%;
+    }
+
+    &-illustration{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-img{
+            width: 100%;
+            background-image: url(/src/imgs/projects/2110/oct21-carsdriving.webp);
+            background-size: cover;
+            background-position: center;
+            border-radius: .1rem;
+            box-shadow: .2rem .2rem .2rem #00000050;
+        }
+    }
+    &-content{
+        &-title{
+            font-family: var(--font-title);
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+        }
+        &-technology{
+            margin-bottom: 1rem;
+            &-item{
+                text-transform: capitalize;
+                color: var(--color-primary)
+            }
+        }
+        &-description{
+            margin-bottom: 4rem;
+        }
+        &-links{
+            ul{
+                margin-left: -2.5rem;
+                list-style: none;
+
+                li{
+                    display: flex;
+                    align-items: center;
+                    a{
+                        text-decoration: none;
+                        color: var(--color-secondary);
+                        transition: .3s;
+                        &:hover{
+                            color: var(--color-primary);
+                        }
+                    }
+                }
+
+                .disabled{
+                    display: none;
+                }
+
+                li+a[href="#"]{
+                    display: none;
+                }
+                li:not(:last-child){
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+    .project-link-disabled{
+        display: none;
+    }
+    &-icon{
+        width: 2rem;
+        margin-right: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 64em){
+    .project{
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        color: var(--color-text);
+        & > div{
+            width: 45%;
+        }
+    }
+}

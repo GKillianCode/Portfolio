@@ -1,0 +1,26 @@
+
+.projects-section,
+.books-section{
+    background-color: var(--color-bg);
+    color: var(--color-text);
+
+    .section-header{
+        color: var(--color-section-title-light);
+
+        hr{
+            border-color: var(--color-section-title-light);
+        }
+    }
+
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 30rem);
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .card{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,36 @@
+
+.about{
+    background-color: var(--color-bg);
+    color: var(--color-text);
+
+    .container{
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-items: center;
+        gap: 4rem;
+    }
+    .illustration{
+        width: 20rem;
+        height: 20rem;
+        border-radius: .5rem;
+        box-shadow: 0 0 2rem #00000080;
+        background-image: url(/src/imgs/assets/photo-profil.webp);
+        background-size: cover;
+        background-position: center;
+    }
+    .description{
+        h2{
+            font-family: var(--font-subtitle);
+            font-size: 5rem;
+        }
+    }
+}
+
+@media screen and (min-width: 48em){
+    .about{
+        .container{
+            grid-template-columns: 20rem 1fr;
+        }
+    }
+}
