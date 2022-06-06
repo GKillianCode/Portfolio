@@ -42,7 +42,7 @@ function drawDetails(){
             TITLE.textContent = title;
             DESCRIPTION.textContent = description;
             technology.map(t => TECHNOLOGY.textContent+=`${t}, `);
-            IMG.setAttribute('src', img);
+            IMG.setAttribute('src', img[0]);
             IMG.setAttribute('alt', 'Image du projet : '+title)
 
             if(links.website){
