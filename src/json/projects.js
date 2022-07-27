@@ -8,17 +8,18 @@ const data = {
         {
             'id': 36,
             "public": true,
-            'title': "Maquettage d'ATM Dashboard",
+            'title': "Maquettage et développement d'une démo d'un tableau de board pour les dabs de banques",
             'img': [
-                "src/imgs/projects/2206/atmdashboard-2.webp",
-                "src/imgs/projects/2206/atmdashboard-1.webp"
+                "src/imgs/projects/2207/atm-dashboard-dark.webp",
             ],
             'date': "Juin 2022",
             'dateId': '2206',
-            'shortDescription': "Un dashboard de gestion des distributeurs automatiques de banques",
-            'description': "ATM Dashboard est un dashboard de gestion des pour les distributeurs automatiques de banques, connaitre la quantité de DAB hors service ainsi que le nombre d'érreurs techniques.",
+            'shortDescription': "Un dashboard de gestion des distributeurs automatiques de banques pour Worldline",
+            'description': "ATM Dashboard est un dashboard de gestion des distributeurs automatiques de banques, connaitre la quantité de DAB hors service ainsi que le nombre d'érreurs techniques.",
             'technology': [
-                'Figma'
+                'Figma',
+                'NodeJs',
+                'VueJs'
             ],
             'links': {
                 'github': "",
