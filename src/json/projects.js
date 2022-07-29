@@ -8,7 +8,7 @@ const data = {
         {
             'id': 36,
             "public": true,
-            'title': "Maquettage et développement d'une démo d'un tableau de board pour les dabs de banques",
+            'title': "Maquettage et développement d'un POC d'un tableau de board pour les dabs de banques",
             'img': [
                 "src/imgs/projects/2207/atm-dashboard-dark.webp",
             ],
@@ -360,7 +360,7 @@ const data = {
             }
         },{
             'id': 20,
-            "public": true,
+            "public": false,
             'title': "Développement d'un jeux de Pong en JavaScript",
             'img': [
                 "src/imgs/projects/2201/jan22-pong-js.webp"
@@ -386,7 +386,7 @@ const data = {
 
         {
             'id': 19,
-            "public": true,
+            "public": false,
             'title': "Développement d'un jeux de casse briques en JavaScript",
             'img': [
                 "src/imgs/projects/2112/dec21-breakout-js.webp"
@@ -408,7 +408,7 @@ const data = {
             }
         },{
             'id': 18,
-            "public": true,
+            "public": false,
             'title': "ChristmasGift, Réalisation d'un jeux pour Noël 2021",
             'img': [
                 "src/imgs/projects/2112/dec21-christmasgift.webp"
@@ -430,7 +430,7 @@ const data = {
             }
         },{
             'id': 17,
-            "public": true,
+            "public": false,
             'title': "Reproduction de la maquette 'Business architecture'",
             'img': [
                 "src/imgs/projects/2112/dec21-business-architecture-template.webp"
@@ -456,7 +456,7 @@ const data = {
 
         {
             'id': 16,
-            "public": true,
+            "public": false,
             'title': "Reproduction de la maquette 'Architecture design new'",
             'img': [
                 "src/imgs/projects/2111/nov21-architecture-design-new.webp"
@@ -478,7 +478,7 @@ const data = {
             }
         },{
             'id': 16,
-            "public": true,
+            "public": false,
             'title': "Reproduction de la maquette 'Delicious food restaurant'",
             'img': [
                 "src/imgs/projects/2111/nov21-delicious-food-restaurant.webp"
@@ -500,7 +500,7 @@ const data = {
             }
         },{
             'id': 15,
-            "public": true,
+            "public": false,
             'title': "Reproduction de la maquette 'Our blog'",
             'img': [
                 "src/imgs/projects/2111/nov21-our-blog.webp"
@@ -522,7 +522,7 @@ const data = {
             }
         },{
             'id': 14,
-            "public": true,
+            "public": false,
             'title': "Reproduction de la maquette 'Real instate investing'",
             'img': [
                 "src/imgs/projects/2111/nov21-real-instate-investing.webp"
@@ -570,7 +570,7 @@ const data = {
 
         {
             'id': 12,
-            "public": true,
+            "public": false,
             'title': "SuperDriver, Réalisation de mon premier jeux de voiture",
             'img': [
                 "src/imgs/projects/2110/oct21-carsdriving.webp"
@@ -684,7 +684,7 @@ const data = {
             }
         },{
             'id': 7,
-            "public": true,
+            "public": false,
             'title': "Développement d'un jeux de Pong en Lua",
             'img': [
                 "src/imgs/projects/0000/sept21-pong.webp"
@@ -710,7 +710,7 @@ const data = {
 
         {
             'id': 6,
-            "public": true,
+            "public": false,
             'title': "Développement du jeux de Snake en Lua",
             'img': [
                 "src/imgs/projects/0000/snake.webp"
@@ -732,7 +732,7 @@ const data = {
             }
         },{
             'id': 5,
-            "public": true,
+            "public": false,
             'title': "Développement d'un jeux de Mémory en Lua",
             'img': [
                 "src/imgs/projects/0000/memory.webp"
@@ -754,7 +754,7 @@ const data = {
             }
         },{
             'id': 4,
-            "public": true,
+            "public": false,
             'title': "Réalisation d'un jeux de pizza pour une Gamejam",
             'img': [
                 "src/imgs/projects/0000/pizza-simulator.webp"
@@ -776,7 +776,7 @@ const data = {
             }
         },{
             'id': 3,
-            "public": true,
+            "public": false,
             'title': "Réalisation d'un jeux de basket en Lua",
             'img': [
                 "src/imgs/projects/0000/catch-the-basket-ball.webp"
@@ -798,7 +798,7 @@ const data = {
             }
         },{
             'id': 2,
-            "public": true,
+            "public": false,
             'title': "Réalisation d'un jeux de pousse-pousse en Lua",
             'img': [
                 "src/imgs/projects/0000/puzzle.webp"
@@ -820,7 +820,7 @@ const data = {
             }
         },{
             'id': 1,
-            "public": true,
+            "public": false,
             'title': "Réalisation de mon jeux Pixel2D, un jeux de pixel art",
             'img': [
                 "src/imgs/projects/0000/pixel2d.webp"
@@ -842,7 +842,7 @@ const data = {
             }
         },{
             'id': 0,
-            "public": true,
+            "public": false,
             'title': "GiveFift, Réalisation d'un jeux pour Noël 2020",
             'img': [
                 "src/imgs/projects/0000/givegift.webp"
