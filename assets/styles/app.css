@@ -2,14 +2,14 @@
 @plugin "@tailwindcss/typography";
 
 @plugin "daisyui" {
-    themes: light themeLight, dark, themeDark;
+    themes: light light, dark, dark;
 }
 
 @plugin "daisyui/theme" {
-    name: "themeLight";
+    name: "light";
     default: true;
     prefersdark: false;
-    color-scheme: "themeLight";
+    color-scheme: "light";
     --color-base-100: oklch(98% 0.001 106.423);
     --color-base-200: oklch(97% 0.001 106.424);
     --color-base-300: oklch(92% 0.003 48.717);
@@ -41,10 +41,10 @@
 }
 
 @plugin "daisyui/theme" {
-    name: "themeDark";
+    name: "dark";
     default: false;
     prefersdark: false;
-    color-scheme: "themeDark";
+    color-scheme: "dark";
     --color-base-100: oklch(30% 0.001 106.423);
     --color-base-200: oklch(27% 0.001 106.424);
     --color-base-300: oklch(24% 0.003 48.717);
