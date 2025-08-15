@@ -1,0 +1,88 @@
+<?php
+
+namespace App\DataFixtures;
+
+use App\Entity\Project;
+use App\Entity\Category;
+use App\Entity\SkillTag;
+use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+
+class AppFixtures extends Fixture
+{
+    public function load(ObjectManager $manager): void
+    {
+
+        $categoriesNames = ['stacks', 'frameworks', 'databases', 'apis'];
+        $tagsArray = [
+            'stacks' => [
+                "PHP",
+                "JavaScript",
+                "SQL",
+                "Java (exp. passée)",
+                "Git",
+                "Docker",
+                "Composer",
+                "Linux",
+            ],
+            'frameworks' => ["Symfony", "API Platform", "Vuejs 3", "TailwindCSS"],
+            'databases' => ["MySQL", "PostgreSQL", "Doctrine", "Splunk"],
+            'apis' => ["REST", "JWT", "Swagger"]
+        ];
+
+        foreach ($categoriesNames as $name) {
+            $category = new Category();
+            $category->setName($name);
+            $manager->persist($category);
+
+            foreach ($tagsArray[$name] as $tagName) {
+                $skillTag = new SkillTag();
+                $skillTag->setName($tagName);
+                $skillTag->setCategory($category);
+                $manager->persist($skillTag);
+            }
+        }
+
+        $projects = [
+            [
+                'title' => 'Application de gestion de librairie',
+                'description' => "Le bute de cette application (side project) est de pouvoir gérer une librairie, avec des fonctionnalités de recherche d'articles mais également la gestion des emprunts et des retours.",
+                'mainPictureUrl' => '#',
+                'tags' => ["PHP", "Symfony", "PostgreSQL", "Vuejs 3", "TailwindCSS"]
+            ],
+            [
+                'title' => 'Dashboard',
+                'description' => "Application de monitoring national des guichets automatiques, affichant en temps réel l’état des régions via des codes couleur selon des métriques critiques.",
+                'mainPictureUrl' => 'atm_dashboard/dashboard/dashboard',
+                'tags' => ["Java", "Docker", "Vuejs 3", "PostgreSQL", "Splunk"]
+            ],
+            [
+                'title' => 'Météo des processus',
+                'description' => "Suivi en temps réel de l’état des traitements entre les banques et Worldline. L’application visualise les statuts (OK / En cours / KO) et leur timing.",
+                'mainPictureUrl' => 'atm_dashboard/meteo/meteo-list-flux',
+                'tags' => ["Java", "Docker", "Vuejs 3", "PostgreSQL", "Splunk"]
+            ]
+        ];
+
+        foreach ($projects as $projectData) {
+            $project = new Project();
+            $project->setTitle($projectData['title']);
+            $project->setShortDescription($projectData['description']);
+            $project->setMainPictureUrl($projectData['mainPictureUrl']);
+            $project->setSlug('slug');
+
+            $tags = [];
+
+            foreach ($projectData['tags'] as $tagName) {
+                $skillTag = $manager->getRepository(SkillTag::class)->findOneBy(['name' => $tagName]);
+                if ($skillTag) {
+                    $tags[] = $skillTag;
+                }
+            }
+
+            $manager->persist($project);
+        }
+
+        $manager->flush();
+    }
+}

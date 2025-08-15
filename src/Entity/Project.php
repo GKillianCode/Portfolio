@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProjectRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -26,9 +28,16 @@ class Project
     #[ORM\Column(length: 255)]
     private ?string $mainPictureUrl = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?SkillTag $skillTags = null;
+    /**
+     * @var Collection<int, SkillTag>
+     */
+    #[ORM\ManyToMany(targetEntity: SkillTag::class)]
+    private Collection $skillTags;
+
+    public function __construct()
+    {
+        $this->skillTags = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -83,14 +92,26 @@ class Project
         return $this;
     }
 
-    public function getSkillTags(): ?SkillTag
+    /**
+     * @return Collection<int, SkillTag>
+     */
+    public function getSkillTags(): Collection
     {
         return $this->skillTags;
     }
 
-    public function setSkillTags(?SkillTag $skillTags): static
+    public function addSkillTag(SkillTag $skillTag): static
     {
-        $this->skillTags = $skillTags;
+        if (!$this->skillTags->contains($skillTag)) {
+            $this->skillTags->add($skillTag);
+        }
+
+        return $this;
+    }
+
+    public function removeSkillTag(SkillTag $skillTag): static
+    {
+        $this->skillTags->removeElement($skillTag);
 
         return $this;
     }
