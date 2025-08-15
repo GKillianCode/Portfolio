@@ -122,7 +122,9 @@ endblock %} {% block body %}
         </h2>
 
         <div class="flex flex-wrap justify-center gap-4">
-            {# Projects lists #}
+            {% for projectCard in projectCardsDTO %} {% include
+            'partials/_project_card.html.twig' with {'projectCard': projectCard}
+            %} {% endfor %}
         </div>
 
         <!--<RouterLink class="btn mt-8 btn-primary">Voir tous les projets</RouterLink>-->

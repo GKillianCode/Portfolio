@@ -1,23 +1,26 @@
 <div class="card w-96 bg-base-100 shadow-sm md:w-100">
     <figure>
         <img
-            src="{{ project.mainPictureUrl }}"
-            alt="Image du projet : {{ project.title }}"
+            src="{{ asset('images/' ~ projectCard.mainPictureUrl) ~ '.png' }}"
+            alt="Image du projet : {{ projectCard.title }}"
         />
     </figure>
     <div class="card-body">
         <h2 class="card-title">
-            <a href="#" class="duration-200 ease-linear hover:text-info">
-                {{ project.title }}</a
+            <a
+                href="{{ projectCard.slug }}"
+                class="duration-200 ease-linear hover:text-info"
+            >
+                {{ projectCard.title }}</a
             >
         </h2>
         <p class="font-mono">
-            {{ project.shortDescription }}
+            {{ projectCard.shortDescription }}
         </p>
         <div class="mt-4 card-actions justify-start">
-            <template v-for="tag in tags" :key="tag">
-                <TagComponent :tag="tag" />
-            </template>
+            {#<template v-for="tag in tags" :key="tag">
+                <TagComponent :tag="tag" /> </template
+            >#}
         </div>
     </div>
 </div>

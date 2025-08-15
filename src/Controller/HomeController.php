@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Project;
 use App\Entity\Category;
-use App\Entity\SkillTag;
 use App\Service\ProjectService;
 use App\Service\SkillTagService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -20,7 +19,6 @@ final class HomeController extends AbstractController
     {
         $categoryRepository = $em->getRepository(Category::class);
         $projectRepository = $em->getRepository(Project::class);
-        $skillTagRepository = $em->getRepository(SkillTag::class);
 
         // Get Categories by SkillTag
         $categories = $categoryRepository->findAll();
@@ -32,12 +30,13 @@ final class HomeController extends AbstractController
 
         // Get 3 last project
         $projects = $projectRepository->findBy([], ['id' => 'DESC'], 3);
-        $projectCardsDTO = ProjectService::abc($projects);
+        $projectCardsDTO = array_reverse(ProjectService::abc($projects));
 
         dump($projectCardsDTO);
 
         return $this->render('home/index.html.twig', [
             'skillTagsList' => $skillTagsList,
+            'projectCardsDTO' => $projectCardsDTO,
         ]);
     }
 }
