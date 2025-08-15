@@ -32,7 +32,7 @@ class AppFixtures extends Fixture
 
         foreach ($categoriesNames as $name) {
             $category = new Category();
-            $category->setName($name);
+            $category->setName(strtoupper($name));
             $manager->persist($category);
 
             foreach ($tagsArray[$name] as $tagName) {
@@ -78,6 +78,10 @@ class AppFixtures extends Fixture
                 if ($skillTag) {
                     $tags[] = $skillTag;
                 }
+            }
+
+            foreach ($tags as $tag) {
+                $project->addSkillTag($tag);
             }
 
             $manager->persist($project);
