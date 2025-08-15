@@ -11,12 +11,13 @@ class ProjectCardDTO
     private SkillTagsDTO $skillTagsDTO;
 
 
-    public function __construct(string $title, string $shortDescription, string $mainPictureUrl, string $slug)
+    public function __construct(string $title, string $shortDescription, string $mainPictureUrl, string $slug, SkillTagsDTO $skillTagsDTO)
     {
         $this->title = $title;
         $this->shortDescription = $shortDescription;
         $this->mainPictureUrl = $mainPictureUrl;
         $this->slug = $slug;
+        $this->skillTagsDTO = $skillTagsDTO;
     }
 
     public function getTitle()
@@ -37,5 +38,10 @@ class ProjectCardDTO
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    public function getSkillTagsDTO()
+    {
+        return $this->skillTagsDTO;
     }
 }

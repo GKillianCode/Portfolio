@@ -43,6 +43,8 @@ class AppFixtures extends Fixture
             }
         }
 
+        $manager->flush();
+
         $projects = [
             [
                 'title' => 'Application de gestion de librairie',
