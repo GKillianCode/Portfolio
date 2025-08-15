@@ -52,4 +52,61 @@ endblock %} {% block body %}
     </div>
 </div>
 
+<!-- Stack -->
+<section id="skills" class="mx-auto max-w-7xl px-4 pb-20">
+    <h2 class="py-15 text-center text-4xl font-bold text-secondary uppercase">
+        Compétences techniques
+    </h2>
+    <div>
+        {% for key, skillTag in skillTagsList %} {% if key == 'STACKS' %}
+        <h3 class="text-2xl">Stack technique :</h3>
+        <div class="mt-2 flex flex-wrap gap-2">
+            {% for stack in skillTag %}
+            <span
+                v-for="stack in stacks"
+                class="md:bagde-xl badge badge-outline badge-md badge-info"
+                >{{ stack.name }}</span
+            >
+            {% endfor %}
+        </div>
+
+        {% elseif key == 'FRAMEWORKS' %}
+        <h3 class="text-2xl mt-8">Frameworks :</h3>
+        <div class="mt-2 flex flex-wrap gap-2">
+            {% for stack in skillTag %}
+            <span
+                v-for="stack in stacks"
+                class="md:bagde-xl badge badge-outline badge-md badge-success"
+                >{{ stack.name }}</span
+            >
+            {% endfor %}
+        </div>
+
+        {% elseif key == 'DATABASES' %}
+        <h3 class="text-2xl mt-8">Base de données :</h3>
+        <div class="mt-2 flex flex-wrap gap-2">
+            {% for stack in skillTag %}
+            <span
+                v-for="stack in stacks"
+                class="md:bagde-xl badge badge-outline badge-md badge-warning"
+                >{{ stack.name }}</span
+            >
+            {% endfor %}
+        </div>
+
+        {% elseif key == 'APIS' %}
+        <h3 class="text-2xl mt-8">APIs :</h3>
+        <div class="mt-2 flex flex-wrap gap-2">
+            {% for stack in skillTag %}
+            <span
+                v-for="stack in stacks"
+                class="md:bagde-xl badge badge-outline badge-md badge-error"
+                >{{ stack.name }}</span
+            >
+            {% endfor %}
+        </div>
+        {% endif %} {% endfor %}
+    </div>
+</section>
+
 {% endblock %}
