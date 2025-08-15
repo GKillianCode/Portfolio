@@ -18,9 +18,16 @@
             {{ projectCard.shortDescription }}
         </p>
         <div class="mt-4 card-actions justify-start">
-            {#<template v-for="tag in tags" :key="tag">
-                <TagComponent :tag="tag" /> </template
-            >#}
+            {% for skillTag in projectCard.skillTagsDTO.skillTagDTOList %} {% if
+            skillTag.categoryName == 'STACKS' %} {% set badgeColor = 'info' %}
+            {% elseif skillTag.categoryName == 'FRAMEWORKS' %} {% set badgeColor
+            = 'success' %} {% elseif skillTag.categoryName == 'DATABASES' %} {%
+            set badgeColor = 'warning' %} {% elseif skillTag.categoryName ==
+            'APIS' %} {% set badgeColor = 'primary' %} {% endif %}
+            <div class="badge badge-outline badge-md badge-{{ badgeColor }}">
+                {{ skillTag.name }}
+            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
