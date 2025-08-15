@@ -2,30 +2,37 @@
 
 namespace App\Service;
 
+use App\DTO\SkillTagsDTO;
 use App\DTO\ProjectCardDTO;
-use App\Entity\Project;
 
 class ProjectService
 {
-    public static function ProjectsToProjectsCardsDTO(array $projects)
+    public static function abc(array $projects): array
     {
-        $projectsDTOs = [];
+        $projectCardsDTO = [];
+
         foreach ($projects as $project) {
-            $projectsDTOs[] = ProjectService::ProjectToProjectCardDTO($project);
+            $skillTags = $project->getSkillTags()->toArray();
+            $skillTagDTOList = [];
+
+            foreach ($skillTags as $skillTag) {
+                $skillTagDTO = SkillTagService::SkillTagDTOToSkillTag($skillTag, $skillTag->getCategory()->getName());
+                $skillTagDTOList[] = $skillTagDTO;
+            }
+
+            $skillTagsDTO = new SkillTagsDTO($skillTagDTOList);
+
+            $projectCardDTO = new ProjectCardDTO(
+                $project->getTitle(),
+                $project->getShortDescription(),
+                $project->getMainPictureUrl(),
+                $project->getSlug(),
+                $skillTagsDTO
+            );
+
+            $projectCardsDTO[] = $projectCardDTO;
         }
-        return $projectsDTOs;
-    }
 
-    public static function ProjectToProjectCardDTO(Project $project)
-    {
-        $projectDTO = new ProjectCardDTO(
-            $project->getTitle(),
-            $project->getShortDescription(),
-            $project->getMainPictureUrl(),
-            $project->getSlug()
-        );
-
-
-        return $projectDTO;
+        return $projectCardsDTO;
     }
 }

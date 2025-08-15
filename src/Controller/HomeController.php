@@ -5,10 +5,8 @@ namespace App\Controller;
 use App\Entity\Project;
 use App\Entity\Category;
 use App\Entity\SkillTag;
-use App\DTO\SkillTagsDTO;
-use App\DTO\ProjectCardDTO;
+use App\Service\ProjectService;
 use App\Service\SkillTagService;
-use App\Repository\SkillTagRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -34,29 +32,7 @@ final class HomeController extends AbstractController
 
         // Get 3 last project
         $projects = $projectRepository->findBy([], ['id' => 'DESC'], 3);
-        $projectCardsDTO = [];
-
-        foreach ($projects as $project) {
-            $skillTags = $project->getSkillTags()->toArray();
-            $skillTagDTOList = [];
-
-            foreach ($skillTags as $skillTag) {
-                $skillTagDTO = SkillTagService::SkillTagDTOToSkillTag($skillTag, $skillTag->getCategory()->getName());
-                $skillTagDTOList[] = $skillTagDTO;
-            }
-
-            $skillTagsDTO = new SkillTagsDTO($skillTagDTOList);
-
-            $projectCardDTO = new ProjectCardDTO(
-                $project->getTitle(),
-                $project->getShortDescription(),
-                $project->getMainPictureUrl(),
-                $project->getSlug(),
-                $skillTagsDTO
-            );
-
-            $projectCardsDTO[] = $projectCardDTO;
-        }
+        $projectCardsDTO = ProjectService::abc($projects);
 
         dump($projectCardsDTO);
 
