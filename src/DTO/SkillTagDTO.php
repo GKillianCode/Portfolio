@@ -8,7 +8,7 @@ class SkillTagDTO
 
     public function __construct(string $name)
     {
-        $this->name = $name;
+        $this->name = htmlspecialchars($name, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     }
 
     public function getName(): string
