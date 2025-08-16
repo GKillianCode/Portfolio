@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\SkillTagRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SkillTagRepository::class)]
@@ -51,5 +49,10 @@ class SkillTag
         $this->category = $category;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->name;
     }
 }
