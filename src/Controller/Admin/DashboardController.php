@@ -3,8 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Project;
+use App\Entity\SkillTag;
 use Symfony\Component\HttpFoundation\Response;
 use App\Controller\Admin\ProjectCrudController;
+use App\Entity\Category;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
@@ -35,6 +37,8 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
             MenuItem::section('Content'),
             MenuItem::linkToCrud('Projects', 'fa fa-briefcase', Project::class),
+            MenuItem::linkToCrud('SkillTags', 'fa fa-briefcase', SkillTag::class),
+            MenuItem::linkToCrud('Categories', 'fa fa-briefcase', Category::class),
         ];
     }
 }

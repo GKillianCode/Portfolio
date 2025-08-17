@@ -2,27 +2,26 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Project;
+use App\Entity\SkillTag;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class ProjectCrudController extends AbstractCrudController
+class SkillTagCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Project::class;
+        return SkillTag::class;
     }
+
 
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
-            TextField::new('shortDescription'),
-            TextField::new('slug'),
-            TextField::new('mainPictureUrl'),
-            AssociationField::new('skillTags')
+            TextField::new('name'),
+            AssociationField::new('category')
                 ->setFormTypeOptions([
                     'by_reference' => false,
                 ])
