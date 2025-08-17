@@ -5,6 +5,8 @@ namespace App\DataFixtures;
 use App\Entity\Project;
 use App\Entity\Category;
 use App\Entity\SkillTag;
+use DateTime;
+use DateTimeImmutable;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -33,12 +35,16 @@ class AppFixtures extends Fixture
         foreach ($categoriesNames as $name) {
             $category = new Category();
             $category->setName(strtoupper($name));
+            $category->setCreatedAt(new DateTimeImmutable());
+            $category->setUpdatedAt(new DateTime());
             $manager->persist($category);
 
             foreach ($tagsArray[$name] as $tagName) {
                 $skillTag = new SkillTag();
                 $skillTag->setName($tagName);
                 $skillTag->setCategory($category);
+                $skillTag->setCreatedAt(new DateTimeImmutable());
+                $skillTag->setUpdatedAt(new DateTime());
                 $manager->persist($skillTag);
             }
         }
@@ -72,6 +78,8 @@ class AppFixtures extends Fixture
             $project->setShortDescription($projectData['description']);
             $project->setMainPictureUrl($projectData['mainPictureUrl']);
             $project->setSlug('slug');
+            $project->setCreatedAt(new DateTimeImmutable());
+            $project->setUpdatedAt(new DateTime());
 
             $tags = [];
 
