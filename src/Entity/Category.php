@@ -24,6 +24,12 @@ class Category
     #[ORM\OneToMany(targetEntity: SkillTag::class, mappedBy: 'category')]
     private Collection $skillTags;
 
+    #[ORM\Column]
+    private ?\DateTimeImmutable $createdAt = null;
+
+    #[ORM\Column]
+    private ?\DateTime $updatedAt = null;
+
     public function __construct()
     {
         $this->skillTags = new ArrayCollection();
@@ -79,5 +85,29 @@ class Category
     public function __toString(): string
     {
         return $this->name;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTime $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 }
