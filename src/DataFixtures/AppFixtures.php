@@ -4,17 +4,21 @@ namespace App\DataFixtures;
 
 use App\Entity\Project;
 use App\Entity\Category;
+use App\Entity\Message;
 use App\Entity\SkillTag;
 use DateTime;
 use DateTimeImmutable;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\DBAL\Types\DateImmutableType;
+use Faker\Factory;
 
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
 
+        // Add projects fixtures
         $categoriesNames = ['stacks', 'frameworks', 'databases', 'apis'];
         $tagsArray = [
             'stacks' => [
@@ -95,6 +99,20 @@ class AppFixtures extends Fixture
             }
 
             $manager->persist($project);
+        }
+
+        // Add messages fixtures
+
+        $faker = Factory::create('fr_FR');
+
+        for ($i = 0; $i <= 10; $i++) {
+            $message = new Message();
+            $message->setName($faker->name())
+                ->setEmail("email$i@gmail.com")
+                ->setMessage($faker->sentence())
+                ->setCreatedAt(new DateTimeImmutable());
+
+            $manager->persist($message);
         }
 
         $manager->flush();
