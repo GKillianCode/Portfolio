@@ -21,3 +21,6 @@
 
 ### Node_modules ###
 node_modules/
+
+### VSCODE ###
+.vscode/*
