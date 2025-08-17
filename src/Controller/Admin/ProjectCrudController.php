@@ -27,6 +27,8 @@ class ProjectCrudController extends AbstractCrudController
                     'by_reference' => false,
                 ])
                 ->onlyOnForms(),
+            DateField::new('createdAt'),
+            DateField::new('updatedAt')
         ];
     }
 }
