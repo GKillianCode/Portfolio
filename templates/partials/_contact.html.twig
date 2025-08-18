@@ -1,0 +1,31 @@
+<section id="contact" class="bg-gray-700">
+    <div class="mx-auto max-w-7xl px-4 pb-20">
+        <h2
+            class="py-15 text-center text-4xl font-bold text-secondary uppercase"
+        >
+            Contactez-moi !
+        </h2>
+        {{ form_start(form) }}
+
+        <div class="flex gap-4 mb-4 flex-col md:flex-row">
+            <div class="flex flex-1 w-full flex-col">
+                {{ form_row(form.fullName) }}
+            </div>
+            <div class="flex flex-1 w-full flex-col">
+                {{ form_row(form.company) }}
+            </div>
+        </div>
+
+        <div class="mb-4">
+            {{ form_row(form.email) }}
+        </div>
+
+        <div class="mb-4">
+            {{ form_row(form.message) }}
+        </div>
+
+        <button class="btn btn-primary mt-4">Envoyer</button>
+
+        {{ form_end(form) }}
+    </div>
+</section>
