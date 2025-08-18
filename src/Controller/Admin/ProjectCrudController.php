@@ -3,8 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Project;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
@@ -22,13 +22,9 @@ class ProjectCrudController extends AbstractCrudController
             TextField::new('shortDescription'),
             TextField::new('slug'),
             TextField::new('mainPictureUrl'),
-            AssociationField::new('skillTags')
-                ->setFormTypeOptions([
-                    'by_reference' => false,
-                ])
-                ->onlyOnForms(),
-            DateField::new('createdAt'),
-            DateField::new('updatedAt')
+            AssociationField::new('skillTags'),
+            DateTimeField::new('createdAt'),
+            DateTimeField::new('updatedAt')
         ];
     }
 }
