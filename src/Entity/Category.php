@@ -6,6 +6,7 @@ use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 class Category
@@ -13,21 +14,30 @@ class Category
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(
+        min: 2,
+        max: 255,
+    )]
     private ?string $name = null;
 
     /**
      * @var Collection<int, SkillTag>
      */
     #[ORM\OneToMany(targetEntity: SkillTag::class, mappedBy: 'category')]
+    #[Assert\NotBlank]
     private Collection $skillTags;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?\DateTime $updatedAt = null;
 
     public function __construct()

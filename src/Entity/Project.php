@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProjectRepository::class)]
 class Project
@@ -14,30 +15,50 @@ class Project
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(
+        min: 3,
+        max: 255,
+    )]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank]
     private ?string $shortDescription = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(
+        min: 3,
+        max: 255,
+    )]
     private ?string $slug = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(
+        min: 10,
+        max: 255,
+    )]
     private ?string $mainPictureUrl = null;
 
     /**
      * @var Collection<int, SkillTag>
      */
     #[ORM\ManyToMany(targetEntity: SkillTag::class)]
+    #[Assert\NotBlank]
     private Collection $skillTags;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?\DateTime $updatedAt = null;
 
     public function __construct()

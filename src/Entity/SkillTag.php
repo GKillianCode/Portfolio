@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\SkillTagRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SkillTagRepository::class)]
 class SkillTag
@@ -11,19 +12,28 @@ class SkillTag
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?int $id = null;
 
     #[ORM\Column(length: 80)]
+    #[Assert\NotBlank]
+    #[Assert\Length(
+        min: 2,
+        max: 80,
+    )]
     private ?string $name = null;
 
     #[ORM\ManyToOne(inversedBy: 'skillTags')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotBlank]
     private ?Category $category = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?\DateTime $updatedAt = null;
 
     public function __construct() {}
