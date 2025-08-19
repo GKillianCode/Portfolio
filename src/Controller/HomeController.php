@@ -10,18 +10,24 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class HomeController extends AbstractController
 {
+    private $categoryRepository;
+    private $projectRepository;
+
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->categoryRepository = $em->getRepository(Category::class);
+        $this->projectRepository = $em->getRepository(Project::class);
+    }
 
     #[Route('/', name: 'home_index')]
-    public function index(EntityManagerInterface $em): Response
+    public function index(): Response
     {
-        $categoryRepository = $em->getRepository(Category::class);
-        $projectRepository = $em->getRepository(Project::class);
-
         // Get Categories by SkillTag
-        $categories = $categoryRepository->findAll();
+        $categories = $this->categoryRepository->findAll();
         $skillTagsList = [];
 
         foreach ($categories as $category) {
@@ -29,10 +35,8 @@ final class HomeController extends AbstractController
         }
 
         // Get 3 last project
-        $projects = $projectRepository->findBy([], ['id' => 'DESC'], 3);
-        $projectCardsDTO = array_reverse(ProjectService::abc($projects));
-
-        dump($projectCardsDTO);
+        $projects = $this->projectRepository->findBy([], ['id' => 'DESC'], 3);
+        $projectCardsDTO = array_reverse(ProjectService::projectsToProjectsCardsDTO($projects));
 
         return $this->render('home/index.html.twig', [
             'skillTagsList' => $skillTagsList,
@@ -43,6 +47,13 @@ final class HomeController extends AbstractController
     #[Route('/projects/{id<\d+>}', name: 'home_projectdetails')]
     public function projectDetails(int $id): Response
     {
-        return $this->render('home/projectDetails.html.twig');
+        $project = $this->projectRepository->find($id);
+        if (!$project) {
+            throw new NotFoundHttpException(sprintf('', $id));
+        }
+
+        return $this->render('home/projectDetails.html.twig', [
+            'project' => $project,
+        ]);
     }
 }

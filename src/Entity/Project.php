@@ -52,14 +52,6 @@ class Project
     #[Assert\NotBlank]
     private Collection $skillTags;
 
-    #[ORM\Column]
-    #[Assert\NotBlank]
-    private ?\DateTimeImmutable $createdAt = null;
-
-    #[ORM\Column]
-    #[Assert\NotBlank]
-    private ?\DateTime $updatedAt = null;
-
     #[ORM\Column(type: Types::TEXT)]
     private ?string $ctx = null;
 
@@ -71,6 +63,14 @@ class Project
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $result = null;
+
+    #[ORM\Column]
+    #[Assert\NotBlank]
+    private ?\DateTimeImmutable $createdAt = null;
+
+    #[ORM\Column]
+    #[Assert\NotBlank]
+    private ?\DateTime $updatedAt = null;
 
     public function __construct()
     {
