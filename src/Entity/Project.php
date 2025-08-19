@@ -60,6 +60,18 @@ class Project
     #[Assert\NotBlank]
     private ?\DateTime $updatedAt = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $ctx = null;
+
+    #[ORM\Column]
+    private array $mainFeatures = [];
+
+    #[ORM\Column]
+    private array $challenges = [];
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $result = null;
+
     public function __construct()
     {
         $this->skillTags = new ArrayCollection();
@@ -167,6 +179,54 @@ class Project
     public function setUpdatedAt(\DateTime $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getCtx(): ?string
+    {
+        return $this->ctx;
+    }
+
+    public function setCtx(string $ctx): static
+    {
+        $this->ctx = $ctx;
+
+        return $this;
+    }
+
+    public function getMainFeatures(): array
+    {
+        return $this->mainFeatures;
+    }
+
+    public function setMainFeatures(array $mainFeatures): static
+    {
+        $this->mainFeatures = $mainFeatures;
+
+        return $this;
+    }
+
+    public function getChallenges(): array
+    {
+        return $this->challenges;
+    }
+
+    public function setChallenges(array $challenges): static
+    {
+        $this->challenges = $challenges;
+
+        return $this;
+    }
+
+    public function getResult(): ?string
+    {
+        return $this->result;
+    }
+
+    public function setResult(string $result): static
+    {
+        $this->result = $result;
 
         return $this;
     }
