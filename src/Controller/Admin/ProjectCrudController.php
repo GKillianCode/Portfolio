@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Project;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -23,6 +24,10 @@ class ProjectCrudController extends AbstractCrudController
             TextField::new('slug'),
             TextField::new('mainPictureUrl'),
             AssociationField::new('skillTags'),
+            TextField::new('ctx'),
+            ArrayField::new('mainFeatures'),
+            ArrayField::new('challenges'),
+            TextField::new('result'),
             DateTimeField::new('createdAt'),
             DateTimeField::new('updatedAt')
         ];

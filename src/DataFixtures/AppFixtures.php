@@ -78,8 +78,10 @@ class AppFixtures extends Fixture
             $project->setShortDescription($projectData['description']);
             $project->setMainPictureUrl($projectData['mainPictureUrl']);
             $project->setSlug('slug');
-            $project->setCreatedAt(new DateTimeImmutable());
-            $project->setUpdatedAt(new DateTime());
+            $project->setCtx('Lorem ipsum');
+            $project->setMainFeatures(['feature 1', 'feature 2']);
+            $project->setChallenges(['Challenge 1', 'Challenge 2']);
+            $project->setResult('Lorem ipsum');
 
             $tags = [];
 
@@ -93,6 +95,9 @@ class AppFixtures extends Fixture
             foreach ($tags as $tag) {
                 $project->addSkillTag($tag);
             }
+
+            $project->setCreatedAt(new DateTimeImmutable());
+            $project->setUpdatedAt(new DateTime());
 
             $manager->persist($project);
         }
