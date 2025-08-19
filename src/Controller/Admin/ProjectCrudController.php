@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Project;
 use App\Form\ChallengeType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
@@ -22,11 +23,11 @@ class ProjectCrudController extends AbstractCrudController
     {
         return [
             TextField::new('title'),
-            TextField::new('shortDescription'),
+            TextareaField::new('shortDescription'),
             TextField::new('slug'),
             TextField::new('mainPictureUrl'),
             AssociationField::new('skillTags'),
-            TextField::new('ctx'),
+            TextareaField::new('ctx'),
             ArrayField::new('mainFeatures'),
             CollectionField::new('challenges', 'Défis & Résultats')
                 ->setEntryType(ChallengeType::class)
@@ -35,7 +36,7 @@ class ProjectCrudController extends AbstractCrudController
                 ->setFormTypeOptions([
                     'by_reference' => false,
                 ]),
-            TextField::new('result'),
+            TextareaField::new('result'),
             DateTimeField::new('createdAt'),
             DateTimeField::new('updatedAt')
         ];
