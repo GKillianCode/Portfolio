@@ -80,7 +80,7 @@ class AppFixtures extends Fixture
             $project->setSlug('slug');
             $project->setCtx('Lorem ipsum');
             $project->setMainFeatures(['feature 1', 'feature 2']);
-            $project->setChallenges(['Challenge 1', 'Challenge 2']);
+            $project->setChallenges([['challenge' => 'Challenge ...', 'result' => 'Result ...'], ['challenge' => 'Challenge ...', 'result' => 'Result ...'], ['challenge' => 'Challenge ...', 'result' => 'Result ...']]);
             $project->setResult('Lorem ipsum');
 
             $tags = [];

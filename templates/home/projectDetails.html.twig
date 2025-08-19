@@ -59,7 +59,11 @@ GODET {% endblock %} {% block body %}
     </h2>
     <div class="space-y-4 mb-6">
         {% for challenge in project.challenges %}
-        <li>{{ challenge }}</li>
+        <div>
+            {% for c in challenge %}
+            <h3>{{ c }}</h3>
+            {% endfor %}
+        </div>
         {% endfor %}
     </div>
 
