@@ -14,11 +14,11 @@
     --color-base-200: oklch(97% 0.001 106.424);
     --color-base-300: oklch(92% 0.003 48.717);
     --color-base-content: oklch(21% 0.006 56.043);
-    --color-primary: oklch(48.8% 0.243 264.376);
+    --color-primary: oklch(70.5% 0.213 47.604);
     --color-primary-content: oklch(98% 0 0);
     --color-secondary: oklch(37.3% 0.034 259.733);
     --color-secondary-content: oklch(98% 0.019 200.873);
-    --color-accent: oklch(70.4% 0.04 256.788);
+    --color-accent: oklch(70.5% 0.213 47.604);
     --color-accent-content: oklch(96% 0.018 272.314);
     --color-neutral: oklch(20% 0.01 67.558);
     --color-neutral-content: oklch(98% 0.001 106.423);
@@ -49,11 +49,11 @@
     --color-base-200: oklch(27% 0.001 106.424);
     --color-base-300: oklch(24% 0.003 48.717);
     --color-base-content: oklch(95% 0.006 56.043);
-    --color-primary: oklch(48.8% 0.243 264.376);
+    --color-primary: oklch(70.5% 0.213 47.604);
     --color-primary-content: oklch(98% 0 0);
     --color-secondary: oklch(37.3% 0.034 259.733);
     --color-secondary-content: oklch(98% 0.019 200.873);
-    --color-accent: oklch(70.4% 0.04 256.788);
+    --color-accent: oklch(70.5% 0.213 47.604);
     --color-accent-content: oklch(96% 0.018 272.314);
     --color-neutral: oklch(20% 0.01 67.558);
     --color-neutral-content: oklch(98% 0.001 106.423);
@@ -77,4 +77,5 @@
 
 :root {
     scroll-behavior: smooth;
+    --bg: oklch(70.7% 0.165 254.624);
 }
