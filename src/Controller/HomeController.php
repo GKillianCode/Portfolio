@@ -39,4 +39,10 @@ final class HomeController extends AbstractController
             'projectCardsDTO' => $projectCardsDTO,
         ]);
     }
+
+    #[Route('/projects/{id<\d+>}', name: 'home_projectdetails')]
+    public function projectDetails(int $id): Response
+    {
+        return $this->render('home/projectDetails.html.twig');
+    }
 }
