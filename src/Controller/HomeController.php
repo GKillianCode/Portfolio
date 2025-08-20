@@ -52,8 +52,10 @@ final class HomeController extends AbstractController
             throw new NotFoundHttpException(sprintf('', $id));
         }
 
+        $projectDto = ProjectService::projectToProjectDTO($project);
+
         return $this->render('home/projectDetails.html.twig', [
-            'project' => $project,
+            'project' => $projectDto,
         ]);
     }
 }

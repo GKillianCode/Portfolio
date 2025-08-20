@@ -14,17 +14,27 @@ GODET {% endblock %} {% block body %}
         <p class="text-md md:text-lg text-gray-100">
             {{ project.shortDescription }}
         </p>
+        {% if project.projectType.name == 'INTERN' %}
         <div class="mt-6 flex justify-center gap-4 flex-col md:flex-row">
-            <a href="#" class="px-6 py-3 bg-primary rounded-lg transition"
-                >Voir le repo GitHub</a
+            <a
+                href="{{ project.repoLink }}"
+                class="px-6 py-3 bg-primary rounded-lg transition"
+                >Voir le repo</a
             >
-            <a href="#" class="px-6 py-3 bg-secondary rounded-lg transition"
+            <a
+                href="{{ project.docLink }}"
+                class="px-6 py-3 bg-secondary rounded-lg transition"
                 >Documentation API</a
             >
-            <a href="#" class="px-6 py-3 bg-success rounded-lg transition"
+            <a
+                href="{{ project.demoLink }}"
+                class="px-6 py-3 bg-success rounded-lg transition"
                 >Accéder à la démo</a
             >
         </div>
+        {% else %}
+        <div class="mt-6 flex justify-center">projet interne</div>
+        {% endif %}
     </div>
 </section>
 
@@ -50,9 +60,18 @@ GODET {% endblock %} {% block body %}
     <h2 class="text-2xl font-semibold mb-4 flex gap-2 align-middle">
         <twig:ux:icon name="tabler:tools" class="w-6" /> Stack technique
     </h2>
-    <p class="mb-6">
-        Symfony 6, PHP 8.3, Doctrine ORM, PostgreSQL, API Platform, JWT, Docker.
-    </p>
+    <div class="mt-4 card-actions justify-start mb-8">
+        {% for skillTag in project.skillTagsDTO.skillTagDTOList %} {% if
+        skillTag.categoryName == 'STACKS' %} {% set badgeColor = 'info' %} {%
+        elseif skillTag.categoryName == 'FRAMEWORKS' %} {% set badgeColor =
+        'success' %} {% elseif skillTag.categoryName == 'DATABASES' %} {% set
+        badgeColor = 'warning' %} {% elseif skillTag.categoryName == 'APIS' %}
+        {% set badgeColor = 'primary' %} {% endif %}
+        <div class="badge badge-outline badge-md badge-{{ badgeColor }}">
+            {{ skillTag.name }}
+        </div>
+        {% endfor %}
+    </div>
 
     <h2 class="text-2xl font-semibold mb-4 flex gap-2 align-middle">
         <twig:ux:icon name="tabler:rocket" class="w-6" /> Défis et solutions
@@ -91,163 +110,5 @@ GODET {% endblock %} {% block body %}
         </div>
     </div>
 </section>
-
-<!--    
-<section class="max-w-6xl mx-auto py-12 px-6">
-    
-
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <main class="md:col-span-2 space-y-8">
-            <section class="bg-white/3 p-6 rounded-lg">
-                <h2 class="text-xl font-semibold mb-3">
-                    🧭 Contexte du projet
-                </h2>
-                <ul class="list-inside list-disc text-gray-200 space-y-1">
-                    <li>
-                        <strong>Type de projet :</strong> Projet interne
-                        entreprise
-                    </li>
-                    <li>
-                        <strong>Objectif :</strong> Gestion interne des données
-                        et supervision d’activité
-                    </li>
-                    <li><strong>Durée :</strong> Janvier 2024 – en cours</li>
-                </ul>
-            </section>
-
-            <section class="bg-white/3 p-6 rounded-lg">
-                <h2 class="text-xl font-semibold mb-3">
-                    ⚙️ Fonctionnalités principales
-                </h2>
-                <ul class="list-disc list-inside text-gray-200 space-y-1">
-                    <li>Gestion des utilisateurs et permissions</li>
-                    <li>Suivi des activités et reporting interne</li>
-                    <li>Alertes temps réel sur incidents critiques</li>
-                    <li>Tableaux de bord personnalisables</li>
-                </ul>
-            </section>
-
-            <section class="bg-white/3 p-6 rounded-lg">
-                <h2 class="text-xl font-semibold mb-3">🛠️ Stack technique</h2>
-                <p class="text-gray-200 whitespace-pre-line">
-                    Backend : Java Spring Boot Frontend : Vue.js 3 Base de
-                    données : PostgreSQL Containerisation : Docker Supervision :
-                    Splunk
-                </p>
-            </section>
-
-            <section class="bg-white/3 p-6 rounded-lg">
-                <h2 class="text-xl font-semibold mb-3">
-                    👤 Mon rôle et mes contributions
-                </h2>
-                <ul class="list-disc list-inside text-gray-200 space-y-1">
-                    <li>Conception de la base de données et entités</li>
-                    <li>Implémentation du backend et API internes</li>
-                    <li>Création de tableaux de bord et rapports dynamiques</li>
-                    <li>Gestion des droits utilisateurs et sécurité</li>
-                </ul>
-            </section>
-
-            <section class="bg-white/3 p-6 rounded-lg">
-                <h2 class="text-xl font-semibold mb-3">
-                    🚀 Défis et solutions
-                </h2>
-                <div class="space-y-4">
-                    <article class="p-4 bg-white/5 rounded-lg">
-                        <p class="font-medium text-white">
-                            Défi : Supervision de multiples GAB en temps réel
-                        </p>
-                        <p class="text-gray-200 mt-1">
-                            Solution : Création d’un système d’alertes et
-                            tableaux de bord consolidés.
-                        </p>
-                    </article>
-                    <article class="p-4 bg-white/5 rounded-lg">
-                        <p class="font-medium text-white">
-                            Défi : Projet 100% interne sans exposer les données
-                        </p>
-                        <p class="text-gray-200 mt-1">
-                            Solution : Sécurisation complète via VPN et
-                            authentification JWT.
-                        </p>
-                    </article>
-                </div>
-            </section>
-
-            <section class="bg-white/3 p-6 rounded-lg">
-                <h2 class="text-xl font-semibold mb-3">
-                    ✅ Résultats et apprentissages
-                </h2>
-                <ul class="list-disc list-inside text-gray-200 space-y-1">
-                    <li>
-                        Mise en place d’un outil interne performant et sécurisé
-                    </li>
-                    <li>
-                        Renforcement des compétences backend et gestion de
-                        projet interne
-                    </li>
-                    <li>
-                        Optimisation des flux de données et reporting temps réel
-                    </li>
-                </ul>
-            </section>
-
-            <section class="bg-white/3 p-6 rounded-lg">
-                <h2 class="text-xl font-semibold mb-3">📸 Galerie</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <figure class="bg-white/6 rounded-lg overflow-hidden">
-                        <img
-                            src="https://via.placeholder.com/400x200"
-                            alt="Dashboard principal"
-                            class="w-full h-44 object-cover"
-                        />
-                        <figcaption class="p-2 text-sm text-gray-300">
-                            Interface principale
-                        </figcaption>
-                    </figure>
-                    <figure class="bg-white/6 rounded-lg overflow-hidden">
-                        <img
-                            src="https://via.placeholder.com/400x200"
-                            alt="Alertes temps réel"
-                            class="w-full h-44 object-cover"
-                        />
-                        <figcaption class="p-2 text-sm text-gray-300">
-                            Alertes temps réel
-                        </figcaption>
-                    </figure>
-                    <figure class="bg-white/6 rounded-lg overflow-hidden">
-                        <img
-                            src="https://via.placeholder.com/400x200"
-                            alt="Reporting interne"
-                            class="w-full h-44 object-cover"
-                        />
-                        <figcaption class="p-2 text-sm text-gray-300">
-                            Reporting interne
-                        </figcaption>
-                    </figure>
-                </div>
-            </section>
-        </main>
-
-        <aside class="md:col-span-1 space-y-6">
-            <div class="bg-white/6 p-6 rounded-2xl">
-                <h3 class="text-lg font-semibold mb-3">
-                    ℹ️ Informations rapides
-                </h3>
-                <p class="text-gray-200">
-                    <strong>Stack :</strong> Java Spring Boot, Vue.js 3,
-                    PostgreSQL, Docker, Splunk
-                </p>
-                <p class="text-gray-200 mt-2">
-                    <strong>Statut :</strong> En production, usage interne
-                </p>
-                <p class="text-gray-200 mt-2">
-                    <strong>Confidentialité :</strong> Privé / Interne
-                </p>
-            </div>
-        </aside>
-    </div>
-</section>-->
 
 {% endblock %}
