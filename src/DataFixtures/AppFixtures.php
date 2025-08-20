@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Project;
 use App\Entity\Category;
+use App\Entity\ProjectType;
 use App\Entity\SkillTag;
 use DateTime;
 use DateTimeImmutable;
@@ -49,6 +50,17 @@ class AppFixtures extends Fixture
             }
         }
 
+        $types = ['INTERN', 'SIDE'];
+
+        foreach ($types as $type) {
+            $projectType = new ProjectType();
+            $projectType->setName(strtoupper($type));
+            $projectType->setCreatedAt(new DateTimeImmutable());
+            $projectType->setUpdatedAt(new DateTime());
+            $manager->persist($projectType);
+        }
+
+
         $manager->flush();
 
         $projects = [
@@ -72,6 +84,8 @@ class AppFixtures extends Fixture
             ]
         ];
 
+        $projectType = $manager->getRepository(ProjectType::class)->findOneBy(['id' => 1]);
+
         foreach ($projects as $projectData) {
             $project = new Project();
             $project->setTitle($projectData['title']);
@@ -82,6 +96,11 @@ class AppFixtures extends Fixture
             $project->setMainFeatures(['feature 1', 'feature 2']);
             $project->setChallenges([['challenge' => 'Challenge ...', 'result' => 'Result ...'], ['challenge' => 'Challenge ...', 'result' => 'Result ...'], ['challenge' => 'Challenge ...', 'result' => 'Result ...']]);
             $project->setResult('Lorem ipsum');
+            $project->setDemoLink("#");
+            $project->setRepoLink("#");
+            $project->setDocLink("#");
+
+            $project->setProjectType($projectType);
 
             $tags = [];
 

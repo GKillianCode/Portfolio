@@ -64,6 +64,19 @@ class Project
     #[ORM\Column(type: Types::TEXT)]
     private ?string $result = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $repoLink = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $docLink = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $demoLink = null;
+
+    #[ORM\ManyToOne(inversedBy: 'projects')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?ProjectType $projectType = null;
+
     #[ORM\Column]
     #[Assert\NotBlank]
     private ?\DateTimeImmutable $createdAt = null;
@@ -227,6 +240,54 @@ class Project
     public function setResult(string $result): static
     {
         $this->result = $result;
+
+        return $this;
+    }
+
+    public function getRepoLink(): ?string
+    {
+        return $this->repoLink;
+    }
+
+    public function setRepoLink(string $repoLink): static
+    {
+        $this->repoLink = $repoLink;
+
+        return $this;
+    }
+
+    public function getDocLink(): ?string
+    {
+        return $this->docLink;
+    }
+
+    public function setDocLink(string $docLink): static
+    {
+        $this->docLink = $docLink;
+
+        return $this;
+    }
+
+    public function getDemoLink(): ?string
+    {
+        return $this->demoLink;
+    }
+
+    public function setDemoLink(string $demoLink): static
+    {
+        $this->demoLink = $demoLink;
+
+        return $this;
+    }
+
+    public function getProjectType(): ?ProjectType
+    {
+        return $this->projectType;
+    }
+
+    public function setProjectType(?ProjectType $projectType): static
+    {
+        $this->projectType = $projectType;
 
         return $this;
     }
