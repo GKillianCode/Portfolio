@@ -43,7 +43,7 @@ GODET {% endblock %} {% block body %}
         <twig:ux:icon name="tabler:compass-filled" class="w-6" /> Contexte du
         projet
     </h2>
-    <p class="mb-6">
+    <p class="mb-8">
         {{ project.ctx }}
     </p>
 
@@ -51,7 +51,7 @@ GODET {% endblock %} {% block body %}
         <twig:ux:icon name="tabler:settings-filled" class="w-6" />
         Fonctionnalités principales
     </h2>
-    <ul class="list-disc list-inside space-y-2 mb-6">
+    <ul class="list-disc list-inside space-y-2 mb-8">
         {% for feature in project.mainFeatures %}
         <li>{{ feature }}</li>
         {% endfor %}
@@ -76,7 +76,7 @@ GODET {% endblock %} {% block body %}
     <h2 class="text-2xl font-semibold mb-4 flex gap-2 align-middle">
         <twig:ux:icon name="tabler:rocket" class="w-6" /> Défis et solutions
     </h2>
-    <div class="space-y-4 mb-6">
+    <div class="space-y-4 mb-8">
         {% for challenge in project.challenges %}
         <div>
             {% for c in challenge %}
@@ -90,24 +90,44 @@ GODET {% endblock %} {% block body %}
         <twig:ux:icon name="tabler:circle-check-filled" class="w-6" />
         Résultats et apprentissages
     </h2>
-    <p class="mb-6">
+    <p class="mb-8">
         {{ project.result }}
     </p>
 
     <h2 class="text-2xl font-semibold mb-4 flex gap-2 align-middle">
         <twig:ux:icon name="tabler:camera" class="w-6" /> Visuels
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div
-            class="bg-gray-200 rounded-lg h-48 flex items-center justify-center text-gray-500"
-        >
-            Capture Admin
-        </div>
-        <div
-            class="bg-gray-200 rounded-lg h-48 flex items-center justify-center text-gray-500"
-        >
-            Exemple JSON
-        </div>
+    <div class="flex flex-row gap-4 flex-wrap mb-8">
+        <img
+            src="https://cdn.pixabay.com/photo/2025/08/11/10/07/milky-way-9767930_960_720.jpg"
+            class="object-cover rounded-lg w-full md:w-1/3 aspect-3/2 flex items-center justify-center text-gray-500"
+            alt="Capture Admin"
+        />
+        <img
+            src="https://cdn.pixabay.com/photo/2025/08/11/10/07/milky-way-9767930_960_720.jpg"
+            class="object-cover rounded-lg w-full md:w-1/3 aspect-3/2 flex items-center justify-center text-gray-500"
+            alt="Capture Admin"
+        />
+        <img
+            src="https://cdn.pixabay.com/photo/2025/08/11/10/07/milky-way-9767930_960_720.jpg"
+            class="object-cover rounded-lg w-full md:w-1/3 aspect-3/2 flex items-center justify-center text-gray-500"
+            alt="Capture Admin"
+        />
+        <img
+            src="https://cdn.pixabay.com/photo/2025/08/11/10/07/milky-way-9767930_960_720.jpg"
+            class="object-cover rounded-lg w-full md:w-1/3 aspect-3/2 flex items-center justify-center text-gray-500"
+            alt="Capture Admin"
+        />
+    </div>
+
+    <h2 class="text-2xl font-semibold mb-4 flex gap-2 align-middle">
+        <twig:ux:icon name="tabler:camera" class="w-6" /> Exemple(s) de
+        retour(s) JSON
+    </h2>
+    <div
+        class="bg-gray-200 rounded-lg h-48 flex items-center justify-center text-gray-500"
+    >
+        Exemple JSON
     </div>
 </section>
 
