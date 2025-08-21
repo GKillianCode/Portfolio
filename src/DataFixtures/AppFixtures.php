@@ -91,6 +91,7 @@ class AppFixtures extends Fixture
             $project->setTitle($projectData['title']);
             $project->setShortDescription($projectData['description']);
             $project->setMainPictureUrl($projectData['mainPictureUrl']);
+            $project->setPictures([]);
             $project->setSlug('slug');
             $project->setCtx('Lorem ipsum');
             $project->setMainFeatures(['feature 1', 'feature 2']);
