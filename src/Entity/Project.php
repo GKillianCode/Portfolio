@@ -85,6 +85,9 @@ class Project
     #[Assert\NotBlank]
     private ?\DateTime $updatedAt = null;
 
+    #[ORM\Column]
+    private array $pictures = [];
+
     public function __construct()
     {
         $this->skillTags = new ArrayCollection();
@@ -288,6 +291,18 @@ class Project
     public function setProjectType(?ProjectType $projectType): static
     {
         $this->projectType = $projectType;
+
+        return $this;
+    }
+
+    public function getPictures(): array
+    {
+        return $this->pictures;
+    }
+
+    public function setPictures(array $pictures): static
+    {
+        $this->pictures = $pictures;
 
         return $this;
     }

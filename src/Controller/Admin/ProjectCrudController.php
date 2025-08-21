@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Project;
 use App\Form\ChallengeType;
+use App\Form\PicturesType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
@@ -26,6 +27,13 @@ class ProjectCrudController extends AbstractCrudController
             TextareaField::new('shortDescription'),
             TextField::new('slug'),
             TextField::new('mainPictureUrl'),
+            CollectionField::new('pictures', 'Images & Descriptions')
+                ->setEntryType(PicturesType::class)
+                ->allowAdd()
+                ->allowDelete()
+                ->setFormTypeOptions([
+                    'by_reference' => false,
+                ]),
             AssociationField::new('skillTags'),
             TextareaField::new('ctx'),
             ArrayField::new('mainFeatures'),
