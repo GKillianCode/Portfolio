@@ -101,13 +101,18 @@ GODET {% endblock %} {% block body %}
     <div class="flex flex-row gap-4 flex-wrap mb-8">
         {% for picture in project.pictures %}
         <figure class="flex flex-col w-full md:w-[480px] mb-4">
-            <img
-                src=" {{ asset('images/' ~ picture.picture) ~ '.png' }} "
-                class="shadow-lg leading-none mb-4 object-cover rounded-lg aspect-3/2 flex items-center justify-center text-gray-500 outline-1 outline-gray-400"
-                alt="Capture du projet : {{ project.title }}. {{
-                    picture.description
-                }}"
-            />
+            <a
+                href="{{ asset('images/' ~ picture.picture) ~ '.png' }}"
+                target="_blank"
+            >
+                <img
+                    src=" {{ asset('images/' ~ picture.picture) ~ '.png' }} "
+                    class="shadow-lg leading-none mb-4 object-cover rounded-lg aspect-3/2 flex items-center justify-center text-gray-500 outline-1 outline-gray-400"
+                    alt="Capture du projet : {{ project.title }}. {{
+                        picture.description
+                    }}"
+                />
+            </a>
             <figcaption class="text-right text-sm">
                 {{ picture.description }}
             </figcaption>
