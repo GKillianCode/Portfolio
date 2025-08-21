@@ -9,6 +9,7 @@ class ProjectDTO
     private string $title;
     private string $shortDescription;
     private string $mainPictureUrl;
+    private array $pictures = [];
     private string $slug;
     private SkillTagsDTO $skillTagsDTO;
     private string $ctx;
@@ -21,11 +22,12 @@ class ProjectDTO
     private ProjectType $projectType;
 
 
-    public function __construct(string $title, string $shortDescription, string $mainPictureUrl, string $slug, SkillTagsDTO $skillTagsDTO, string $ctx, array $mainFeatures, array $challenges, string $result, string $repoLink, string $docLink, string $demoLink, ProjectType $projectType)
+    public function __construct(string $title, string $shortDescription, string $mainPictureUrl, array $pictures, string $slug, SkillTagsDTO $skillTagsDTO, string $ctx, array $mainFeatures, array $challenges, string $result, string $repoLink, string $docLink, string $demoLink, ProjectType $projectType)
     {
         $this->title = $title;
         $this->shortDescription = $shortDescription;
         $this->mainPictureUrl = $mainPictureUrl;
+        $this->pictures = $pictures;
         $this->slug = $slug;
         $this->skillTagsDTO = $skillTagsDTO;
         $this->ctx = $ctx;
@@ -51,6 +53,11 @@ class ProjectDTO
     public function getMainPictureUrl()
     {
         return $this->mainPictureUrl;
+    }
+
+    public function getPictures()
+    {
+        return $this->pictures;
     }
 
     public function getSlug()

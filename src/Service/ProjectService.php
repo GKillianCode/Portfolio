@@ -57,6 +57,7 @@ class ProjectService
             $project->getTitle(),
             $project->getShortDescription(),
             $project->getMainPictureUrl(),
+            $project->getPictures(),
             $project->getSlug(),
             $skillTagsDTO,
             $project->getCtx(),
