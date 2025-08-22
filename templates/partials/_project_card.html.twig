@@ -8,7 +8,9 @@
     <div class="card-body">
         <h2 class="card-title">
             <a
-                href="{{ projectCard.slug }}"
+                href="{{
+                    path('home_projectdetails', { slug: projectCard.slug })
+                }}"
                 class="duration-200 ease-linear hover:text-info"
             >
                 {{ projectCard.title }}</a

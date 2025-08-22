@@ -44,12 +44,12 @@ final class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/projects/{id<\d+>}', name: 'home_projectdetails')]
-    public function projectDetails(int $id): Response
+    #[Route('/projects/{slug}', name: 'home_projectdetails')]
+    public function projectDetails(string $slug): Response
     {
-        $project = $this->projectRepository->find($id);
+        $project = $this->projectRepository->findOneBy(['slug' => $slug]);
         if (!$project) {
-            throw new NotFoundHttpException(sprintf('', $id));
+            throw new NotFoundHttpException(sprintf('', $slug));
         }
 
         $projectDto = ProjectService::projectToProjectDTO($project);
