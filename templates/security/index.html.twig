@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %} {% block title %}Page de connection - Portfolio
+Killian GODET{% endblock %} {% block body %}
+<div data-theme="dark">
+    <section class="mx-auto max-w-7xl px-4 pb-20">
+        <div
+            class="flex justify-center align-middle flex-col h-full"
+            style="min-height: 100vh"
+        >
+            <h2 class="mb-8 text-2xl">Page de connexion</h2>
+
+            {{ form_start(form) }}
+
+            <div class="mb-4">
+                {{ form_row(form.email) }}
+            </div>
+
+            <div class="mb-8">
+                {{ form_row(form.password) }}
+            </div>
+
+            <button class="btn btn-primary">Se connecter</button>
+
+            {{ form_end(form) }}
+        </div>
+    </section>
+</div>
+{% endblock %}

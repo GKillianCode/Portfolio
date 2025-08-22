@@ -10,17 +10,23 @@
         <link rel="stylesheet" href="{{ asset('styles/app.css') }}" />
 
         {% block stylesheets %} {% endblock %} {% block javascripts %}
-            {{ encore_entry_link_tags('app') }}
-            {{ encore_entry_script_tags('app') }}
+        {{
+            encore_entry_link_tags("app")
+        }}
+        {{
+            encore_entry_script_tags("app")
+        }}
         <link rel="stylesheet" href="{{ asset('build/app.css') }}" />
         {% endblock %}
     </head>
     <body>
-        {% include "partials/_navbar.html.twig" %} {% block body %}{% endblock
-        %}
+        {% if app.request.attributes.get('_route') not in ['security_login'] %}
+        {% include "partials/_navbar.html.twig" %} {% endif %} {% block body
+        %}{% endblock %} {% if app.request.attributes.get('_route') not in
+        ['security_login'] %}
         {{
             render(controller("App\\Controller\\ContactController::renderForm"))
         }}
-        {% include "partials/_footer.html.twig" %}
+        {% endif %} {% include "partials/_footer.html.twig" %}
     </body>
 </html>
