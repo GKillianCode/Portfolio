@@ -1,3 +1,5 @@
+import "./styles/app.css";
+
 const body = document.querySelector("body");
 const darkModeButton = document.querySelector(".theme-controller");
 

@@ -1,7 +1,7 @@
 module.exports = {
     content: ["./assets/**/*.js", "./templates/**/*.html.twig"],
-    theme: {
-        extend: {},
+    plugins: [require("daisyui")],
+    daisyui: {
+        themes: ["light", "dark"],
     },
-    plugins: [require("@tailwindcss/forms")],
 };

@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="{{ asset('styles/app.css') }}" />
 
         {% block stylesheets %} {% endblock %} {% block javascripts %}
+            {{ encore_entry_link_tags('app') }}
+            {{ encore_entry_script_tags('app') }}
         <link rel="stylesheet" href="{{ asset('build/app.css') }}" />
         {% endblock %}
     </head>
