@@ -29,7 +29,7 @@ class Project
     #[Assert\NotBlank]
     private ?string $shortDescription = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     #[Assert\NotBlank]
     #[Assert\Length(
         min: 3,

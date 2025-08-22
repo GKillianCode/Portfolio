@@ -10,9 +10,17 @@ use DateTime;
 use DateTimeImmutable;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AppFixtures extends Fixture
 {
+    protected $slugger;
+
+    public function __construct(SluggerInterface $slugger)
+    {
+        $this->slugger = $slugger;
+    }
+
     public function load(ObjectManager $manager): void
     {
 
@@ -92,7 +100,6 @@ class AppFixtures extends Fixture
             $project->setShortDescription($projectData['description']);
             $project->setMainPictureUrl($projectData['mainPictureUrl']);
             $project->setPictures([]);
-            $project->setSlug('slug');
             $project->setCtx('Lorem ipsum');
             $project->setMainFeatures(['feature 1', 'feature 2']);
             $project->setChallenges([['challenge' => 'Challenge ...', 'result' => 'Result ...'], ['challenge' => 'Challenge ...', 'result' => 'Result ...'], ['challenge' => 'Challenge ...', 'result' => 'Result ...']]);
@@ -100,6 +107,7 @@ class AppFixtures extends Fixture
             $project->setDemoLink("#");
             $project->setRepoLink("#");
             $project->setDocLink("#");
+            $project->setSlug(strtolower(($this->slugger->slug($project->getTitle()))));
 
             $project->setProjectType($projectType);
 
