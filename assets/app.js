@@ -1,5 +1,9 @@
+import "./styles/app.css";
+
 const body = document.querySelector("body");
 const darkModeButton = document.querySelector(".theme-controller");
+
+console.log("LOAD !!");
 
 darkModeButton.addEventListener("click", () => {
     const isButtonCheck = darkModeButton.checked;
@@ -14,6 +18,7 @@ darkModeButton.addEventListener("click", () => {
 });
 
 window.addEventListener("load", (event) => {
+    console.log("LOAD !! 222");
     const savedTheme = localStorage.getItem("theme");
 
     if (savedTheme) {
