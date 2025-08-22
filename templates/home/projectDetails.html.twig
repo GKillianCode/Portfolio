@@ -18,18 +18,24 @@ GODET {% endblock %} {% block body %}
         <div class="mt-6 flex justify-center gap-4 flex-col md:flex-row">
             <a
                 href="{{ project.repoLink }}"
-                class="px-6 py-3 bg-primary rounded-lg transition"
-                >Voir le repo</a
+                class="px-6 py-3 bg-primary rounded-lg transition flex gap-2"
+            >
+                <twig:ux:icon name="tabler:brand-git" class="w-6" />
+                Voir le repo</a
             >
             <a
                 href="{{ project.docLink }}"
-                class="px-6 py-3 bg-secondary rounded-lg transition"
-                >Documentation API</a
+                class="px-6 py-3 bg-secondary rounded-lg transition flex gap-2"
+            >
+                <twig:ux:icon name="tabler:notes" class="w-6" />
+                Documentation API</a
             >
             <a
                 href="{{ project.demoLink }}"
-                class="px-6 py-3 bg-success rounded-lg transition"
-                >Accéder à la démo</a
+                class="px-6 py-3 bg-success rounded-lg transition flex gap-2"
+            >
+                <twig:ux:icon name="streamline-plump:web" class="w-6" />
+                Accéder à la démo</a
             >
         </div>
         {% else %}

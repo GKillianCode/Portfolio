@@ -33,22 +33,29 @@ endblock %} {% block body %}
             <div class="my-10 flex gap-4">
                 <a
                     href="#"
-                    class="badge border-none badge-xl duration-200 badge-primary"
+                    class="badge border-none badge-xl duration-200 badge-primary flex gap-2"
                     style="background: oklch(28.2% 0.091 267.935)"
-                    >Linked'in</a
+                    >
+                    <twig:ux:icon name="tabler:brand-linkedin" class="w-6" />
+                    Linked'in</a
                 >
                 <a
                     href="#"
-                    class="badge border-none badge-xl duration-200 badge-primary"
+                    class="badge border-none badge-xl duration-200 badge-primary flex gap-2"
                     style="background: oklch(28.2% 0.091 267.935)"
-                    >Github</a
+                    >
+                    <twig:ux:icon name="tabler:brand-github" class="w-6" />
+                    Github</a
                 >
             </div>
             <div class="flex flex-wrap gap-2">
-                <button class="btn btn-lg btn-primary">Voir mes projets</button>
-                <button class="btn btn-lg btn-secondary">
+                <a href="#projects" class="btn btn-lg btn-primary flex gap-2">
+                  <twig:ux:icon name="tabler:zoom" class="w-8" />
+                  Voir mes projets</a>
+                <a href="#" target="_blank" class="btn btn-lg btn-secondary flex gap-2">
+                  <twig:ux:icon name="tabler:file-info" class="w-8" />
                     Télécharger mon CV
-                </button>
+                </a>
             </div>
         </div>
     </div>

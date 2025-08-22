@@ -24,7 +24,10 @@
             {{ form_row(form.message) }}
         </div>
 
-        <button class="btn btn-primary mt-4">Envoyer</button>
+        <button class="btn btn-primary mt-4 flex gap-2">
+            Envoyer
+            <twig:ux:icon name="tabler:send-2" class="w-5" />
+        </button>
 
         {{ form_end(form) }}
     </div>
