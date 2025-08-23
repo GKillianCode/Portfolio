@@ -1,7 +1,13 @@
 {% extends 'base.html.twig' %} {% block title %}Page de connection - Portfolio
 Killian GODET{% endblock %} {% block body %}
 <div data-theme="dark">
-    <section class="mx-auto max-w-7xl px-4 pb-20">
+    <section class="mx-auto max-w-7xl px-4 pb-20 relative">
+        <a
+            href="{{ path('home_index') }}"
+            class="absolute top-8 bg-secondary hover:bg-primary duration-200 p-4 rounded-lg"
+        >
+            <twig:ux:icon name="tabler:home-filled" class="w-6" />
+        </a>
         <div
             class="flex justify-center align-middle flex-col h-full"
             style="min-height: 100vh"
