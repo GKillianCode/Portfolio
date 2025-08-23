@@ -10,12 +10,22 @@ Killian GODET{% endblock %} {% block body %}
 
             {{ form_start(form) }}
 
+            {% if error %}
+            <div class="bg-error p-2 rounded-lg mb-6">
+                {{ error.messageKey|trans(error.messageData, 'security') }}
+            </div>
+            {% endif %}
+
+            <div>
+                {{ form_errors(form) }}
+            </div>
+
             <div class="mb-4">
-                {{ form_row(form.email) }}
+                {{ form_row(form._username) }}
             </div>
 
             <div class="mb-8">
-                {{ form_row(form.password) }}
+                {{ form_row(form._password) }}
             </div>
 
             <button class="btn btn-primary">Se connecter</button>

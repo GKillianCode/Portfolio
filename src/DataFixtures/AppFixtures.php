@@ -6,23 +6,33 @@ use App\Entity\Project;
 use App\Entity\Category;
 use App\Entity\ProjectType;
 use App\Entity\SkillTag;
+use App\Entity\User;
 use DateTime;
 use DateTimeImmutable;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AppFixtures extends Fixture
 {
     protected $slugger;
+    protected $encoder;
 
-    public function __construct(SluggerInterface $slugger)
+    public function __construct(SluggerInterface $slugger, UserPasswordHasherInterface $encoder)
     {
         $this->slugger = $slugger;
+        $this->encoder = $encoder;
     }
 
     public function load(ObjectManager $manager): void
     {
+
+        $user = new User();
+        $user->setEmail("godetkillian@outlook.com");
+        $user->setPassword($this->encoder->hashPassword($user, "password"));
+
+        $manager->persist($user);
 
         $categoriesNames = ['stacks', 'frameworks', 'databases', 'apis'];
         $tagsArray = [
