@@ -1,3 +1,4 @@
+{#
 <section id="contact" class="bg-gray-700">
     <div class="mx-auto max-w-7xl px-4 pb-20">
         <h2
@@ -30,5 +31,148 @@
         </button>
 
         {{ form_end(form) }}
+    </div>
+
+    <div class="mt-8 text-center text-gray-600">
+        <p>Vous préférez un contact direct ?</p>
+        <a
+            href="mailto:contact@killiangodet.fr"
+            class="text-indigo-600 hover:text-indigo-700 font-medium"
+        >
+            contact@killiangodet.fr
+        </a>
+    </div>
+</section>
+#}
+
+<section id="contact" class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Me contacter</h2>
+            <p class="text-lg text-gray-600">
+                Vous avez un projet ? Discutons-en !
+            </p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <!-- Messages de feedback -->
+            <div id="contactAlert" class="hidden mb-6 p-4 rounded-lg"></div>
+
+            <!-- Messages Flash (pour le fallback non-AJAX) -->
+            {% for label, messages in app.flashes %} {% for message in messages
+            %}
+            <div
+                class="mb-6 p-4 rounded-lg {% if label == 'success' %}bg-green-50 text-green-800 border border-green-200{% else %}bg-red-50 text-red-800 border border-red-200{% endif %}"
+            >
+                {{ message }}
+            </div>
+            {% endfor %} {% endfor %}
+
+            <!-- Formulaire -->
+            {{ form_start(form, {'attr': {'id': 'contactForm'}}) }}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    {{ form_label(form.fullName, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700 mb-2'
+
+
+                    }}) }}
+                    {{ form_widget(form.fullName) }}
+                    {{ form_errors(form.fullName, {'attr': {'class': 'text-red-500 text-sm mt-1'
+
+
+                    }}) }}
+                    <span
+                        class="text-red-500 text-sm mt-1"
+                        id="error-fullName"
+                    ></span>
+                </div>
+
+                <div>
+                    {{ form_label(form.company, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700 mb-2'
+
+
+                    }}) }}
+                    {{ form_widget(form.company) }}
+                    {{ form_errors(form.company, {'attr': {'class': 'text-red-500 text-sm mt-1'
+
+
+                    }}) }}
+                    <span
+                        class="text-red-500 text-sm mt-1"
+                        id="error-company"
+                    ></span>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                {{ form_label(form.email, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700 mb-2'
+
+
+                }}) }}
+                {{ form_widget(form.email) }}
+                {{ form_errors(form.email, {'attr': {'class': 'text-red-500 text-sm mt-1'
+
+
+                }}) }}
+                <span class="text-red-500 text-sm mt-1" id="error-email"></span>
+            </div>
+
+            <div class="mb-6">
+                {{ form_label(form.message, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700 mb-2'
+
+
+                }}) }}
+                {{ form_widget(form.message) }}
+                {{ form_errors(form.message, {'attr': {'class': 'text-red-500 text-sm mt-1'
+
+
+                }}) }}
+                <span
+                    class="text-red-500 text-sm mt-1"
+                    id="error-message"
+                ></span>
+            </div>
+
+            <button
+                type="submit"
+                id="submitBtn"
+                class="w-full md:w-auto px-8 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+            >
+                <span id="btnText">Envoyer le message</span>
+                <svg
+                    id="btnLoader"
+                    class="hidden inline-block ml-2 w-4 h-4 text-white animate-spin"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                >
+                    <circle
+                        class="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        stroke-width="4"
+                    ></circle>
+                    <path
+                        class="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                    ></path>
+                </svg>
+            </button>
+            {{ form_end(form) }}
+        </div>
+
+        <!-- Alternative de contact direct -->
+        <div class="mt-8 text-center text-gray-600">
+            <p>Vous préférez un contact direct ?</p>
+            <a
+                href="mailto:contact@killiangodet.fr"
+                class="text-indigo-600 hover:text-indigo-700 font-medium"
+            >
+                contact@killiangodet.fr
+            </a>
+        </div>
     </div>
 </section>
