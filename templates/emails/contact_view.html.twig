@@ -1,10 +1,11 @@
 <p>
-    <b>{{ contact.fullName }}</b> de l'entreprise <b>{{ contact.company }}</b>
+    <b>{{ contact.fullName|e('html', 'UTF-8') }}</b> de l'entreprise
+    <b>{{ contact.company|e('html', 'UTF-8') }}</b>
 </p>
 <br />
 <p>
-    Email de contact : <b>{{ contact.email }}</b>
+    Email de contact : <b>{{ contact.email|e('html', 'UTF-8') }}</b>
 </p>
 <br />
 <p><b>Message :</b></p>
-<p>{{ contact.message }}</p>
+<p>{{ contact.message|e('html', 'UTF-8') }}</p>
