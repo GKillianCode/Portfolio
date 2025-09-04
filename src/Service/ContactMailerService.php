@@ -22,7 +22,7 @@ class ContactMailerService  // Assure-toi que le nom de la classe correspond au 
         try {
             $email = (new TemplatedEmail())
                 ->from(new Address($this->contactEmail, 'Portfolio Contact Form'))
-                ->replyTo(new Address($contact->email, $contact->fullName))
+                ->replyTo(new Address($contact->email, htmlspecialchars($contact->fullName, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')))
                 ->to($this->contactEmail)
                 ->subject("Demande de contact")
                 ->htmlTemplate('emails/contact_view.html.twig')
