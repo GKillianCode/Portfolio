@@ -24,8 +24,8 @@ class ContactMailerService  // Assure-toi que le nom de la classe correspond au 
                 ->from(new Address($this->contactEmail, 'Portfolio Contact Form'))
                 ->replyTo(new Address($contact->email, $contact->fullName))
                 ->to($this->contactEmail)
-                ->subject(sprintf('[Portfolio] Contact de %s - %s', $contact->fullName, $contact->company))
-                ->text($contact->message)
+                ->subject("Demande de contact")
+                ->htmlTemplate('emails/contact_view.html.twig')
                 ->context([
                     'contact' => $contact,
                     'date' => new \DateTime()
