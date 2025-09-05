@@ -26,6 +26,15 @@ class ProjectCrudController extends AbstractCrudController
             TextField::new('title'),
             TextareaField::new('shortDescription'),
             TextField::new('slug'),
+
+            AssociationField::new('projectType')
+                ->setFormTypeOptions([
+                    'choice_label' => 'name',
+                    'expanded' => true,
+                    'multiple' => false,
+                    'placeholder' => 'Choisir un type de projet',
+                ]),
+
             TextField::new('mainPictureUrl'),
             CollectionField::new('pictures', 'Images & Descriptions')
                 ->setEntryType(PicturesType::class)
